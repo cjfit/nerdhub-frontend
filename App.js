@@ -1,0 +1,41 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow strict-local
+ */
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { Block, GalioProvider, Text } from 'galio-framework';
+import argonTheme from './constants/argonTheme';
+import { enableScreens } from 'react-native-screens';
+import SplashScreen from 'react-native-splash-screen';
+import Screens from './navigation/Screens';
+import Images from './constants/Images';
+
+const images = [
+  Images.DrawerLogo2,
+  Images.OnboardingLogo,
+  Images.Onboarding
+]
+enableScreens();
+
+class App extends React.Component {
+  async componentDidMount() {
+    SplashScreen.hide();
+  }
+  render() {
+    return (
+      <NavigationContainer>
+          <GalioProvider style={argonTheme}>
+            <Block flex>
+              <Screens/>
+            </Block>
+          </GalioProvider>
+      </NavigationContainer>
+    );
+  }
+};
+
+export default App;
