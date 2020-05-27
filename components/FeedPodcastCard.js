@@ -82,7 +82,8 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         borderRadius: 50/2,
-        marginBottom: '1%'
+        marginBottom: '1%',
+        backgroundColor: argonTheme.COLORS.MUTED
     },
     bottom: {
         alignItems: 'center'

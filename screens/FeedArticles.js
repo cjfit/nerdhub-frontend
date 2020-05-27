@@ -8,17 +8,12 @@ import { StyleSheet } from "react-native";
 import { Button } from 'react-native-elements';
 import Icon from '../components/Icon';
 
-
-
 export default function FeedArticles() {
+  
   renderVideoItem = ({item}) => {
     return (
           <Block>
-            <TouchableWithoutFeedback>
-            <FeedArticleCard
-              item={item}
-            />
-            </TouchableWithoutFeedback>
+            <FeedArticleCard item={item}/>
             <Block flexDirection='row' style={{justifyContent: 'flex-start', alignItems: 'center'}}>
             <Button 
             title='1,357'
@@ -67,6 +62,8 @@ export default function FeedArticles() {
           </Block>
       );
     }
+
+
     
   return (
           <Block style={styles.motherContainer}>

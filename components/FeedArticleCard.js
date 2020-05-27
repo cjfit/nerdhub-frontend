@@ -9,19 +9,11 @@ import {
 import { Block, Text } from "galio-framework";
 import argonTheme from "../constants/argonTheme";
 import nerdProfiles from "../constants/nerdProfiles";
+import {OpenLink} from '../navigation/InAppBrowser';
 
 export default function FeedArticleCard ({item}) {
-    const handleClick = () => {
-      Linking.canOpenURL(this.props.url).then(supported => {
-        if (supported) {
-          Linking.openURL(this.props.url);
-        } else {
-          console.log("Don't know how to open URL: " + this.props.url);
-        }
-      })};
 
     return (
-      <TouchableWithoutFeedback>
         <Block style={styles.container}>
             <Block>
                 <Block flexDirection='row' style={styles.bottom}>
@@ -46,20 +38,21 @@ export default function FeedArticleCard ({item}) {
                     </Block>
                 </Block>
             </Block>
+            <TouchableWithoutFeedback onPress={OpenLink}>
             <Image 
             source={{ uri: item.image }} 
             style={styles.image}
             />
+            </TouchableWithoutFeedback>
             <Text 
             style={{fontFamily: 'OpenSans-regular', fontSize: 14, marginTop: '3%'}}
             numberOfLines={2}
             >
             {item.title}
-            </Text>            
+            </Text>        
             <Block flexDirection='row'>
             </Block>
         </Block>
-      </TouchableWithoutFeedback>
     );
 }
 
@@ -82,7 +75,8 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         borderRadius: 50/2,
-        marginBottom: '1%'
+        marginBottom: '1%',
+        backgroundColor: argonTheme.COLORS.MUTED
     },
     bottom: {
         alignItems: 'center'
