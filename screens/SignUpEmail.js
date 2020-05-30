@@ -9,7 +9,6 @@ import {
     ActivityIndicator,
     Image, 
     ImageBackground } from 'react-native';
-import auth from '@react-native-firebase/auth';
 import argonTheme from '../constants/argonTheme';
 import Images from "../constants/Images";
 import { Button } from 'react-native-elements'
@@ -36,55 +35,7 @@ export default class SignupEmail extends Component {
     this.setState(state);
   }
 
-  registerUser = () => {
-    if(this.state.email === '' && this.state.password === '') {
-      Alert.alert('Enter details to sign up!')
-    } else if(this.state.password !== this.state.reEntry) {
-      alert('Passwords do not match.')
-    } else {
-      this.setState({
-        isLoading: true,
-      })
-      auth()
-      .createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then((res) => {
-        res.user.updateProfile({
-          displayName: this.state.displayName
-        })
-        console.log('User registered successfully!')
-        this.setState({
-          isLoading: false,
-          displayName: '',
-          email: '', 
-          password: '',
-          reEntry: ''
-        })
-        this.props.navigation.navigate('Feed');
-      })
-      .catch(function(error) {
-        var errorCode = error.code
-        var errorMessage = 'Something went wrong while registering';
-        switch (errorCode) {
-          case 'auth/email-already-in-use':
-            alert('Email already in use.');
-          case 'auth/invalid-email':
-            alert('Invalid email.');
-          case 'auth/weak-password':
-            alert('Password is too weak.')
-          default: 
-          alert(errorMessage)
-        }
-        console.error(error);
-      }).then((errorCode) => {
-        if(errorCode !== '') {
-          this.setState({
-            isLoading: false
-          })
-        }
-      });
-    }
-  }
-
+  
   render() {
     if(this.state.isLoading){
       return(
@@ -170,7 +121,7 @@ export default class SignupEmail extends Component {
           color={argonTheme.COLORS.WHITE}
           />
         }
-        onPress={() => this.registerUser()}
+        onPress={alert('todo')}
         />
         <Text style={styles.loginText}>
           or

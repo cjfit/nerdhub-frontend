@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, TextInput, Alert, ActivityIndicator, Image, ImageBackground } from 'react-native';
 import { Button } from 'react-native-elements'
 import { Block, Text } from 'galio-framework';
-import auth from '@react-native-firebase/auth';
 import argonTheme from '../constants/argonTheme';
 import Images from "../constants/Images";
 
@@ -15,47 +14,6 @@ export default class PasswordReset extends React.Component {
           errorCode: ''
         }
     }
-    
-    updateInputVal = (val, prop) => {
-        const state = this.state;
-        state[prop] = val;
-        this.setState(state);
-    }
-
-    passwordReset() {
-    if(this.state.email === '') {
-      Alert.alert('No email address entered!')
-        } else {
-            this.setState({
-              isLoading: true
-            })
-        auth()
-        .sendPasswordResetEmail(this.state.email)
-        .then((res) => {
-        console.log(res)
-        console.log('Password reset link sent.')
-        this.setState({
-          isLoading: false,
-          email: ''
-        })
-        this.props.navigation.navigate('SignInEmail')
-      })
-        .catch(function(error) {
-            var errorCode = error.code
-            var errorMessage = 'Password reset link did not send, please try again.';
-            switch (errorCode) {
-              case 'auth/invalid-email':
-                alert('Invalid email.');
-              case 'auth/user-disabled':
-                alert('User disabled.')
-              default: 
-              alert(errorMessage)
-            }
-            console.error(error);
-          })
-      }   
-    }
-
 
     render() {
     if(this.state.isLoading){

@@ -19,7 +19,6 @@ import VideoCard from "../components/VideoCard";
 import PodcastCard from '../components/PodcastCard';
 import ViewMoreText from 'react-native-view-more-text';
 import { useNavigation } from '@react-navigation/native';
-import firestore from '@react-native-firebase/firestore';
 
 const { width, height } = Dimensions.get("screen");
 const thumbMeasure = (width - 48 - 32) / 3;

@@ -4,7 +4,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import auth from "@react-native-firebase/auth";
 
 import FeedScreens from '../screens/FeedScreens';
 import Explore from "../screens/Explore";
@@ -287,32 +286,10 @@ function AppStack() {
 
   
 export default function BootStack() {
-  const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState();
-
-  function onAuthStateChanged(user) {
-    setUser(user);
-    if (initializing) setInitializing(false);
-  }
-
-  useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber; // unsubscribe on unmount
-  }, []);
-
-  if (initializing) return null;
-
-  if (!user) {
-    return (
-      <Stack.Navigator mode="card" headerMode="none">
-            <Stack.Screen name="Onboarding" component={OnboardingStack}/>
-      </Stack.Navigator>
-    )
-  } else {
+  //Must implement new authentification with amplify here
     return (
         <Stack.Navigator mode="card" headerMode="none">
             <Stack.Screen name="App" component={AppStack}/>
         </Stack.Navigator>
     );
-  }
 }

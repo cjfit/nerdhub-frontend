@@ -1,15 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import argonTheme from '../constants/argonTheme';
 import { Block, Text } from 'galio-framework';
 import nerdProfiles from '../constants/nerdProfiles';
 import FeedArticleCard from "../components/FeedArticleCard";
 import { FlatList, TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { StyleSheet } from "react-native";
+import { StyleSheet, ActivityIndicator } from "react-native";
 import { Button } from 'react-native-elements';
 import Icon from '../components/Icon';
+//import {articlesRef} from '../database';
 
 export default function FeedArticles() {
-  
   renderVideoItem = ({item}) => {
     return (
           <Block>
@@ -63,8 +63,6 @@ export default function FeedArticles() {
       );
     }
 
-
-    
   return (
           <Block style={styles.motherContainer}>
           <FlatList 

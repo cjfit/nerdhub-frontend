@@ -1,5 +1,4 @@
 #import "AppDelegate.h"
-#import <Firebase.h>
 #import "RNSplashScreen.h"
 
 #import <React/RCTBridge.h>
@@ -29,9 +28,6 @@ static void InitializeFlipper(UIApplication *application) {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  if ([FIRApp defaultApp] == nil) {
-     [FIRApp configure];
-   }
 #if DEBUG
   InitializeFlipper(application);
 #endif

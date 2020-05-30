@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, TextInput, Alert, ActivityIndicator, Image, ImageBackground } from 'react-native';
 import { Button } from 'react-native-elements'
 import { Block, Text } from 'galio-framework';
-import auth from '@react-native-firebase/auth';
 import argonTheme from '../constants/argonTheme';
 import Images from "../constants/Images";
 
@@ -16,58 +15,6 @@ export default class SignInEmail extends Component {
       reEntry: '',
       isLoading: false,
       errorCode: ''
-    }
-  }
-
-  updateInputVal = (val, prop) => {
-    const state = this.state;
-    state[prop] = val;
-    this.setState(state);
-  }
-
-  userLogin = () => {
-    if(this.state.email === '' && this.state.password === '') {
-      Alert.alert('Enter details to signin!')
-    } else {
-      this.setState({
-        isLoading: true,
-      })
-      auth()
-      .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then((res) => {
-        console.log(res)
-        console.log('User logged-in successfully!')
-        this.setState({
-          isLoading: false,
-          email: '', 
-          password: '',
-
-        })
-        this.props.navigation.navigate('Feed')
-      })
-      .catch(function(error) {
-        var errorCode = error.code
-        var errorMessage = 'Something went wrong while registering';
-        switch (errorCode) {
-          case 'auth/user-not-found':
-            alert('User not found.');
-          case 'auth/invalid-email':
-            alert('Invalid email.');
-          case 'auth/user-disabled':
-            alert('User disabled.')
-          case 'auth/wrong-password':
-            alert('Password does not match email.')
-          default: 
-          alert(errorMessage)
-        }
-        console.error(error);
-      }).then(function(errorCode) {
-        if(errorCode !== '') {
-          this.setState({
-            isLoading: false
-          })
-        }
-      });
     }
   }
 
@@ -112,7 +59,7 @@ export default class SignInEmail extends Component {
             width: '100%',
             marginTop: '15%'
         }}
-          onPress={() => this.userLogin()}
+          onPress={alert('todo')}
         />
        <Text 
           style={styles.loginText}

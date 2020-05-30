@@ -6,14 +6,8 @@ import {Switch} from 'react-native';
 import argonTheme from "../constants/argonTheme";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import auth from '@react-native-firebase/auth';
 
 function Settings() {
-function signOut(){
-    auth()
-    .signOut()
-    .then(() => console.log('User signed out!'));
-    }
     const navigation = useNavigation();
     const [isEnabled, setIsEnabled] = useState(true);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
