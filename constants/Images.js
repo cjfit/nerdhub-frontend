@@ -1,17 +1,9 @@
 // local imgs
 const Onboarding = require("../assets/imgs/OnboardingResize.jpg");
-const Logo = require("../assets/imgs/argon-logo.png");
 const DrawerLogo = require("../assets/imgs/forWeb/png/drawerLogo.png")
 const DrawerLogo2 = require("../assets/imgs/forWeb/png/color_no_background.png")
 const OnboardingLogo = require('../assets/imgs/forWeb/png/whiteLogo.png')
-const LogoOnboarding = require("../assets/imgs/argon-logo-onboarding.png");
-const ProfileBackground = require("../assets/imgs/exploreBackground.jpg");
-const RegisterBackground = require("../assets/imgs/register-bg.png");
-const Pro = require("../assets/imgs/getPro-bg.png");
-const ArgonLogo = require("../assets/imgs/argonlogo.png");
-const iOSLogo = require("../assets/imgs/ios.png");
-const androidLogo = require("../assets/imgs/android.png");
-const ProfilePicture = require("../assets/imgs/profile-img.jpg")
+
 // internet imgs
 const ProfileChat = 'https://images.unsplash.com/photo-1500522144261-ea64433bbe27?fit=crop&w=1051&q=80'
 

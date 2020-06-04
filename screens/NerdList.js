@@ -12,7 +12,7 @@ function NerdList() {
   function renderItem({item}) {
       return (
       <TouchableOpacity
-      onPress={() => navigation.navigate('Profile2', {
+      onPress={() => navigation.navigate('Profile', {
         id: item.id
       })}
       >

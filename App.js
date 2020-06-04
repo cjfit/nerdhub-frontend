@@ -14,11 +14,6 @@ import SplashScreen from 'react-native-splash-screen';
 import Screens from './navigation/Screens';
 import Images from './constants/Images';
 
-const images = [
-  Images.DrawerLogo2,
-  Images.OnboardingLogo,
-  Images.Onboarding
-]
 enableScreens();
 
 class App extends React.Component {

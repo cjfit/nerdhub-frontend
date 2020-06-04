@@ -71,8 +71,8 @@ class Header extends React.Component {
       case 'Search':
       case 'Settings':
         return ([
-          <BellButton key='chat-categories' navigation={navigation} isWhite={white}/>,
-          <BasketButton key='basket-categories' navigation={navigation} isWhite={white}/>
+          // return header icons here
+          null
         ]);
       default:
         break;

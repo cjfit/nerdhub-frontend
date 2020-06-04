@@ -8,7 +8,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import FeedScreens from '../screens/FeedScreens';
 import Explore from "../screens/Explore";
 import NerdList from "../screens/NerdList";
-import Profile2 from "../screens/Profile2";
+import Profile from "../screens/Profile";
 import ViewAll from "../screens/ViewAll";
 import Onboarding from "../screens/Onboarding";
 import SignInEmail from "../screens/SignInEmail";
@@ -144,14 +144,14 @@ function NerdListStack() {
         }}
         />
         <Stack.Screen 
-            name="Profile2"
-            component={Profile2}
+            name="Profile"
+            component={Profile}
             options={{
                 header: ({ navigation, scene }) => (
                   <Header
                     transparent
                     back
-                    title="Profile2"
+                    title="Profile"
                     navigation={navigation}
                     scene={scene}
                   />
