@@ -12,7 +12,11 @@ import argonTheme from './constants/argonTheme';
 import { enableScreens } from 'react-native-screens';
 import SplashScreen from 'react-native-splash-screen';
 import Screens from './navigation/Screens';
-import Images from './constants/Images';
+import Amplify from 'aws-amplify'
+import config from './aws-exports'
+
+Amplify.configure(config)
+copy
 
 enableScreens();
 

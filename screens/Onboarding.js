@@ -12,7 +12,8 @@ function Onboarding() {
     const navigation = useNavigation();
     
     return (
-            <ImageBackground source={Images.Onboarding} style={styles.background}>
+            <Block style={styles.background}>
+                <ImageBackground source={Images.blob} style={styles.blob}>
                 <Image source={Images.OnboardingLogo} style={styles.img}/>
                 <Block style={styles.textBlock}>
                     <Text style={styles.welcomeText}>
@@ -22,6 +23,7 @@ function Onboarding() {
                         never miss a great idea.
                     </Text>
                 </Block>
+                </ImageBackground>
                 <Block style={styles.buttonContainer}>
                     <Button
                         title="Log In"
@@ -47,34 +49,35 @@ function Onboarding() {
                         onPress={() => navigation.navigate('SignUpEmail')}
                     />
                 </Block>
-            </ImageBackground>
+            </Block>
     )
 }
 
 const styles = StyleSheet.create({
     img: {
-        width: '90%',
+        width: '80%',
         height: 100,
         marginBottom: '5%',
-        marginTop: '35%'
+        marginTop: '35%',
+        zIndex: 1,
+        alignSelf: 'center'
+    },
+    blob: {
+        width: '100%',
+        height: '76%',
+        zIndex: 0
     },
     background: {
         flex: 1,
-        resizeMode: 'cover',
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: argonTheme.COLORS.DEFAULT
     },
     welcomeText: {
         fontFamily: 'OpenSans-regular',
         fontSize: 24,
         color: argonTheme.COLORS.WHITE,
-        textAlign: 'center',
-        textShadowColor: argonTheme.COLORS.BLACK,
-        textShadowOffset: { width: -1, height: 2 },
-        textShadowRadius: 3, 
-    },
-    textBlock: {
-        marginBottom: '30%'
+        textAlign: 'center'
     },
     button: {
         width: 250,

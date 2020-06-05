@@ -65,7 +65,6 @@ function Settings() {
                     />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.itemContainer}
-                onPress={signOut}
                 >
                     <Text 
                     style={{fontFamily:'OpenSans-regular', fontSize: 18, color: argonTheme.COLORS.MUTED}}
