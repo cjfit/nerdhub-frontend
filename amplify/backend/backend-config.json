@@ -1,1 +1,10 @@
-{}
+{
+	"auth": {
+		"nerdhub26f86dcf": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}

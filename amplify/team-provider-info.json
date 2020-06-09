@@ -10,6 +10,11 @@
             "StackName": "amplify-nerdhub-dev-163106",
             "StackId": "arn:aws:cloudformation:us-east-2:970668048089:stack/amplify-nerdhub-dev-163106/879e4fe0-a76b-11ea-a8d5-02402ec64522",
             "AmplifyAppId": "d2bzn752lt9qdn"
+        },
+        "categories": {
+            "auth": {
+                "nerdhub26f86dcf": {}
+            }
         }
     }
 }

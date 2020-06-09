@@ -7,7 +7,6 @@ import { FlatList, TouchableWithoutFeedback } from "react-native-gesture-handler
 import { StyleSheet, ActivityIndicator } from "react-native";
 import { Button } from 'react-native-elements';
 import Icon from '../components/Icon';
-//import {articlesRef} from '../database';
 
 export default function FeedArticles() {
   renderVideoItem = ({item}) => {

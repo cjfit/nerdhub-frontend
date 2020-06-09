@@ -14,10 +14,17 @@ import SplashScreen from 'react-native-splash-screen';
 import Screens from './navigation/Screens';
 import Amplify from 'aws-amplify'
 import config from './aws-exports'
+import ApolloClient from 'apollo-boost';
 
+// Hasura graphql API server end point object
+const client = new ApolloClient({
+  uri: 'http://ec2-13-59-107-152.us-east-2.compute.amazonaws.com/v1/graphql',
+});
+
+// Configure amplify
 Amplify.configure(config)
-copy
 
+// Enable native navigation interaction
 enableScreens();
 
 class App extends React.Component {
