@@ -10,20 +10,14 @@ import Explore from "../screens/Explore";
 import NerdList from "../screens/NerdList";
 import Profile from "../screens/Profile";
 import ViewAll from "../screens/ViewAll";
-import Onboarding from "../screens/Onboarding";
-import SignInEmail from "../screens/SignInEmail";
-import SignUpEmail from "../screens/SignUpEmail";
-import SignUpSelect from "../screens/SignUpSelect";
-import PasswordReset from '../screens/PasswordReset';
 import Settings from "../screens/Settings";
-
 import Icon from "../components/Icon";
 import Header from '../components/Header';
 import FeedHeader from '../components/FeedHeader';
 import CustomDrawerContent from "../navigation/Menu";
 import Search from '../screens/Search';
-import { withAuthenticator } from 'aws-amplify-react-native'; 
-import myTheme from '../constants/myTheme';
+import {withAuthenticator} from 'aws-amplify-react-native'
+import {AmplifyTheme} from '../constants/AmplifyTheme';
 
 export const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -31,48 +25,7 @@ const Tab = createBottomTabNavigator();
 const TabTop = createMaterialTopTabNavigator();
 const { width } = Dimensions.get("screen");
 
-function OnboardingStack() {
-  return (
-    <Stack.Navigator mode="card" headerMode="none">
-      <Stack.Screen
-      name="Onboarding"
-      component={Onboarding}
-      options={{
-        headerTitle: null
-      }}
-      />
-      <Stack.Screen 
-      name='SignUpSelect'
-      component={SignUpSelect}
-      options={{
-        headerTitle: null
-      }}
-      />
-      <Stack.Screen 
-      name='SignUpEmail'
-      component={SignUpEmail}
-      options={{
-        headerTitle: null
-      }}
-      />
-      <Stack.Screen 
-      name='SignInEmail'
-      component={SignInEmail}
-      options={{
-        headerTitle: null
-      }}
-      />
-      <Stack.Screen
-      name='PasswordReset'
-      component={PasswordReset}
-      options={{
-        headerTitle: null
-      }}
-      />
-    </Stack.Navigator>
-  )
-}
-
+//auth flow here
 
 function FeedTabs() {
   return (
@@ -295,4 +248,7 @@ function BootStack() {
     );
 }
 
-export default withAuthenticator(BootStack, false, [], null, myTheme);
+export default withAuthenticator(BootStack, {
+  includeGreetings: false,
+  theme: {AmplifyTheme}
+});

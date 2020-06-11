@@ -7,6 +7,7 @@ import argonTheme from "../constants/argonTheme";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from '@react-navigation/native';
 import nerdProfiles from '../constants/nerdProfiles';
+
 function NerdList() {
   const navigation = useNavigation();
   function renderItem({item}) {
