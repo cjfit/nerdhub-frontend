@@ -22,8 +22,8 @@ import Header from '../components/Header';
 import FeedHeader from '../components/FeedHeader';
 import CustomDrawerContent from "../navigation/Menu";
 import Search from '../screens/Search';
-import Amplify, { Auth } from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react-native'; 
+import myTheme from '../constants/myTheme';
 
 export const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -286,7 +286,6 @@ function AppStack() {
     );
   }
 
-  
 function BootStack() {
   //Must implement way to get user data. See Dev tutorial.
     return (
@@ -296,4 +295,4 @@ function BootStack() {
     );
 }
 
-export default withAuthenticator(BootStack, true);
+export default withAuthenticator(BootStack, false, [], null, myTheme);

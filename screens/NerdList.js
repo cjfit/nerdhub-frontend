@@ -1,7 +1,7 @@
 import React from 'react';
 import { Block, Text } from 'galio-framework';
 import { withNavigation } from '@react-navigation/compat';
-import { StyleSheet, FlatList, ActivityIndicator } from "react-native";
+import { StyleSheet, FlatList, ActivityIndicator, View } from "react-native";
 import { ListItem } from "react-native-elements";
 import argonTheme from "../constants/argonTheme";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -41,6 +41,7 @@ function NerdList() {
   }  
    
     return (
+      <View style={styles.background}>
         <Block>
             <FlatList 
             data={nerdProfiles.bios}
@@ -49,19 +50,23 @@ function NerdList() {
             />
 
         </Block>
+      </View>
     );
 }
 
 const styles = StyleSheet.create({
-    names: {
-      fontFamily: 'OpenSans-bold',
-      color: argonTheme.COLORS.TEXT,
-    },
+  background: {
+    backgroundColor: argonTheme.COLORS.WHITE
+  },
+  names: {
+    fontFamily: 'OpenSans-bold',
+    color: argonTheme.COLORS.TEXT,
+  },
   
-    descriptions: {
-      fontFamily: 'OpenSans-regular',
-      color: argonTheme.COLORS.TEXT,
-    },
-  });  
+  descriptions: {
+    fontFamily: 'OpenSans-regular',
+    color: argonTheme.COLORS.TEXT,
+  },
+});  
 
 export default withNavigation(NerdList);

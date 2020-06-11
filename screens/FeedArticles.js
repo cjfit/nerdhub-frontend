@@ -4,7 +4,7 @@ import { Block, Text } from 'galio-framework';
 import nerdProfiles from '../constants/nerdProfiles';
 import FeedArticleCard from "../components/FeedArticleCard";
 import { FlatList, TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { StyleSheet, ActivityIndicator } from "react-native";
+import { StyleSheet, ActivityIndicator, View } from "react-native";
 import { Button } from 'react-native-elements';
 import Icon from '../components/Icon';
 
@@ -63,6 +63,7 @@ export default function FeedArticles() {
     }
 
   return (
+          <View style={styles.background}>
           <Block style={styles.motherContainer}>
           <FlatList 
               keyExtractor={(item, index) => index.toString()}
@@ -71,6 +72,7 @@ export default function FeedArticles() {
               showsVerticalScrollIndicator={false}
           />
           </Block>
+          </View>
     );
 }
 
