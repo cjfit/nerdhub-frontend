@@ -2,8 +2,8 @@ import React from 'react'
 import {
   TouchableHighlight, Text, View, StyleSheet
 } from 'react-native'
-import argonTheme from '../../constants/argonTheme'
-import Icon from '../../components/Icon';
+import argonTheme from '../constants/argonTheme'
+import Icon from './Icon';
 
 
 const SocialButton = ({

@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { View, TouchableHighlight, StyleSheet } from 'react-native'
-import {Text} from 'galio-framework';
+import { Text } from 'galio-framework';
 import { Auth } from 'aws-amplify'
-import argonTheme from '../../../constants/argonTheme';
-import { Input, ActionButton } from '../../components'
+import argonTheme from '../../constants/argonTheme';
+import Input from '../../components/Input'
+import ActionButton from '../../components/ActionButton'
 import SocialButton from '../../components/SocialButton';
 
 class SignIn extends Component {

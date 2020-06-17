@@ -15,8 +15,8 @@ import Screens from './navigation/Screens';
 import Amplify from 'aws-amplify'
 import config from './aws-exports'
 import ApolloClient from 'apollo-boost';
-import Auth from './src/nav/auth/Auth'
-import Initializing from './src/nav/Initializing'
+import Auth from './screens/auth/Auth';
+import Initializing from './screens/Initializing'
 import { Auth as AmplifyAuth } from 'aws-amplify'
 
 // Hasura graphql API server end point object

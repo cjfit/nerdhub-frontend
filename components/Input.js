@@ -1,76 +1,38 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import PropTypes from 'prop-types';
+import React, {useState} from 'react'
+import { Dimensions, StyleSheet, TextInput } from 'react-native'
+import argonTheme from '../constants/argonTheme'
 
-import { Input } from "galio-framework";
+const { width } = Dimensions.get('window')
 
-import Icon from './Icon';
-import argonTheme from "../constants/argonTheme";
-
-class ArInput extends React.Component {
-  render() {
-    const { shadowless, success, error } = this.props;
-
-    const inputStyles = [
-      styles.input,
-      !shadowless && styles.shadow,
-      success && styles.success,
-      error && styles.error,
-      {...this.props.style}
-    ];
-
-    return (
-      <Input
-        placeholder="write something here"
-        placeholderTextColor={argonTheme.COLORS.MUTED}
-        style={inputStyles}
-        color={argonTheme.COLORS.HEADER}
-        iconContent={
-          <Icon
-            size={14}
-            color={argonTheme.COLORS.ICON}
-            name="link"
-            family="AntDesign"
-          />
-        }
-        {...this.props}
-      />
-    );
-  }
-}
-
-ArInput.defaultProps = {
-  shadowless: false,
-  success: false,
-  error: false
-};
-
-ArInput.propTypes = {
-  shadowless: PropTypes.bool,
-  success: PropTypes.bool,
-  error: PropTypes.bool
-}
+const Input = ({
+  placeholder, type, secureTextEntry = false, onChangeText
+}) => (
+  <TextInput
+    style={styles.input}
+    placeholder={placeholder}
+    autoCapitalize='none'
+    autoCorrect={false}
+    onChangeText={v => onChangeText(type, v)}
+    secureTextEntry={secureTextEntry}
+    placeholderTextColor={argonTheme.COLORS.TEXT}
+    selectionColor={argonTheme.COLORS.ACTIVE}
+  />
+)
 
 const styles = StyleSheet.create({
   input: {
-    borderRadius: 4,
-    borderColor: argonTheme.COLORS.BORDER,
-    height: 44,
-    backgroundColor: '#FFFFFF'
-  },
-  success: {
-    borderColor: argonTheme.COLORS.INPUT_SUCCESS,
-  },
-  error: {
-    borderColor: argonTheme.COLORS.INPUT_ERROR,
-  },
-  shadow: {
-    shadowColor: argonTheme.COLORS.BLACK,
-    shadowOffset: { width: 0, height: 0.5 },
-    shadowRadius: 1,
-    shadowOpacity: 0.13,
-    elevation: 2,
+    backgroundColor: argonTheme.COLORS.WHITE,
+    borderColor: argonTheme.COLORS.ACTIVE,
+    borderRadius: 10,
+    borderWidth: 1,
+    height: 45,
+    width: width - 30,
+    marginBottom: 10,
+    fontSize: 16,
+    paddingHorizontal: 14,
+    fontFamily: 'OpenSans-regular',
+    color: argonTheme.COLORS.TEXT
   }
-});
+})
 
-export default ArInput;
+export default Input

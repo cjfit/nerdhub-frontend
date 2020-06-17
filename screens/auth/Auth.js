@@ -6,8 +6,8 @@ import {
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 import ForgotPassword from './ForgotPassword'
-import Images from '../../../constants/Images';
-import argonTheme from '../../../constants/argonTheme'
+import Images from '../../constants/Images';
+import argonTheme from '../../constants/argonTheme';
 
 const { width } = Dimensions.get('window')
 

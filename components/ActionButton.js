@@ -2,7 +2,7 @@ import React from 'react'
 import {
   TouchableHighlight, Text, View, StyleSheet
 } from 'react-native'
-import argonTheme from '../../constants/argonTheme'
+import argonTheme from '../constants/argonTheme';
 
 
 const ActionButton = ({

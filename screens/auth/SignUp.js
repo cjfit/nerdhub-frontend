@@ -1,9 +1,9 @@
 import React, { Fragment, Component } from 'react'
 import { View, StyleSheet } from 'react-native'
-
-import { Input, ActionButton } from '../../components'
+import ActionButton from '../../components/ActionButton'
+import Input from '../../components/Input'
 import { Auth } from 'aws-amplify'
-import argonTheme from '../../../constants/argonTheme'
+import argonTheme from '../../constants/argonTheme'
 
 class SignIn extends Component {
   state = {

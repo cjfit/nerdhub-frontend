@@ -2,7 +2,8 @@ import React from 'react'
 import {
   View, Text, StyleSheet, Image, Dimensions
 } from 'react-native'
-import { Input, ActionButton } from '../../components'
+import ActionButton from '../../components/ActionButton'
+import Input from '../../components/Input'
 import { Auth } from 'aws-amplify'
 
 class ForgotPassword extends React.Component {
