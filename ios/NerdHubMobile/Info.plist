@@ -30,6 +30,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.725969277232-a09rfcgjea6n948n294ocjbmf0pof3n9</string>
+				<string>myapp</string>
 			</array>
 		</dict>
 	</array>

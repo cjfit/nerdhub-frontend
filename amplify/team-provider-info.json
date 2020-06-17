@@ -13,7 +13,9 @@
         },
         "categories": {
             "auth": {
-                "nerdhub26f86dcf": {}
+                "nerdhub26f86dcf": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"248832469867696\",\"client_secret\":\"52088edd04afe692d450970581d7f306\"},{\"ProviderName\":\"Google\",\"client_id\":\"1059389696323-mkbakhcdu63b00e8dj3nu5sotkfhic5o.apps.googleusercontent.com\",\"client_secret\":\"gbiGsRu7fKyzWf_-NUZpDX8i\"}]"
+                }
             }
         }
     }

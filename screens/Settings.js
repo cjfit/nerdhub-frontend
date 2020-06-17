@@ -6,6 +6,7 @@ import {Switch} from 'react-native';
 import argonTheme from "../constants/argonTheme";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { Auth } from 'aws-amplify'
 
 function Settings() {
     const navigation = useNavigation();
@@ -13,6 +14,17 @@ function Settings() {
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     const [isDark, setDark] = useState(false);
     const toggleDark = () => setDark(previousState => !previousState)
+    // Sign Out function
+    async function signOut() {
+        try {
+          await Auth.signOut()
+          console.log('signed out')
+          this.props.updateAuth('auth')
+        } catch (err) {
+          console.log('error signing out...', err)
+        }
+      }
+
     return(
         <Block style={styles.container}>
             <Block style={styles.subContainer}>
@@ -65,6 +77,7 @@ function Settings() {
                     />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.itemContainer}
+                onPress={signOut}
                 >
                     <Text 
                     style={{fontFamily:'OpenSans-regular', fontSize: 18, color: argonTheme.COLORS.MUTED}}

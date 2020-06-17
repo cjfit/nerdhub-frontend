@@ -16,8 +16,6 @@ import Header from '../components/Header';
 import FeedHeader from '../components/FeedHeader';
 import CustomDrawerContent from "../navigation/Menu";
 import Search from '../screens/Search';
-import {withAuthenticator} from 'aws-amplify-react-native'
-import {AmplifyTheme} from '../constants/AmplifyTheme';
 
 export const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -25,7 +23,7 @@ const Tab = createBottomTabNavigator();
 const TabTop = createMaterialTopTabNavigator();
 const { width } = Dimensions.get("screen");
 
-//auth flow here
+//auth flow at bottom of file
 
 function FeedTabs() {
   return (
@@ -202,7 +200,7 @@ function HomeStack() {
     );
 }
 
-function AppStack() {
+function AppStack(props) {
     return (
       <Drawer.Navigator
         style={{ flex: 1 }}
@@ -239,16 +237,6 @@ function AppStack() {
     );
   }
 
-function BootStack() {
-  //Must implement way to get user data. See Dev tutorial.
-    return (
-        <Stack.Navigator mode="card" headerMode="none">
-            <Stack.Screen name="App" component={AppStack}/>
-        </Stack.Navigator>
-    );
-}
+// AWS AUTH
 
-export default withAuthenticator(BootStack, {
-  includeGreetings: false,
-  theme: {AmplifyTheme}
-});
+export default AppStack
