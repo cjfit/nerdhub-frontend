@@ -3,8 +3,7 @@ import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import FeedPodcasts from './FeedPodcasts';
 import FeedVideos from './FeedVideos';
 import FeedArticles from './FeedArticles';
-import { ScrollView } from 'react-native-gesture-handler';
-import { Dimensions, StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet, View } from 'react-native';
 import argonTheme from '../constants/argonTheme';
 import { Text } from "galio-framework";
 
@@ -61,15 +60,14 @@ export default function FeedScreens() {
     });
 
     return (
-        <ScrollView style={styles.background}>
         <TabView
             navigationState={{ index, routes }}
             renderScene={renderScene}
             onIndexChange={setIndex}
             initialLayout={initialLayout}
             renderTabBar={renderTabBar}
+            style={styles.background}
         />
-        </ScrollView>
     )
 }
 

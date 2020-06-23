@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { View, TouchableHighlight, StyleSheet } from 'react-native'
+import { View, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 import { Text } from 'galio-framework';
 import { Auth } from 'aws-amplify'
 import argonTheme from '../../constants/argonTheme';
-import Input from '../../components/Input'
-import ActionButton from '../../components/ActionButton'
-import SocialButton from '../../components/SocialButton';
+import Input from '../../components/Auth/Input'
+import ActionButton from '../../components/Auth/ActionButton'
+import SocialButton from '../../components/Auth/SocialButton';
+import GoogleButton from '../../components/Auth/GoogleButton';
 
 class SignIn extends Component {
   state = {
@@ -21,9 +22,9 @@ class SignIn extends Component {
       await Auth.signIn(username, password)
       console.log('successfully signed in')
       this.props.updateAuth('MainNav')
-    } catch (err) {
-      console.log('error signing in...', err)
-      alert(err)
+    } catch (code) {
+      console.log('error signing in...', code)
+      alert(code.message)
     }
   }
   showForgotPassword = () => {
@@ -49,20 +50,17 @@ class SignIn extends Component {
           BGColor={argonTheme.COLORS.ACTIVE}
         />
         <View style={styles.buttonContainer}>
-          <TouchableHighlight onPress={this.showForgotPassword}>
+          <TouchableWithoutFeedback onPress={this.showForgotPassword}>
             <Text style={{fontSize: 16, fontFamily: 'OpenSans-regular'}}>Forget your password?</Text>
-          </TouchableHighlight>
+          </TouchableWithoutFeedback>
         </View>
         <View style={styles.buttonContainer}>
             <Text style={{fontSize: 16, fontFamily: 'OpenSans-regular'}}>Or</Text>
         </View>
         <View style={styles.socialCont}>
-        <SocialButton
+        <GoogleButton
           title="Sign in with Google"
           onPress={() => Auth.federatedSignIn({ provider: "Google" })}
-          BGColor={argonTheme.COLORS.MUTED}
-          iconName='google'
-          iconColor='red'
         />
         <SocialButton
           title="Sign in with Facebook"
@@ -70,12 +68,14 @@ class SignIn extends Component {
           BGColor={argonTheme.COLORS.FACEBOOK}
           iconName='facebook'
           iconColor='white'
+          textColor={argonTheme.COLORS.WHITE}
         />
         <SocialButton
           title="Sign in with Apple"
           BGColor={argonTheme.COLORS.BLACK}
           iconName='apple'
           iconColor='white'
+          textColor={argonTheme.COLORS.WHITE}
         />
         </View>
       </View>

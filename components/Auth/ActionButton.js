@@ -2,7 +2,8 @@ import React from 'react'
 import {
   TouchableHighlight, Text, View, StyleSheet
 } from 'react-native'
-import argonTheme from '../constants/argonTheme';
+import argonTheme from '../../constants/argonTheme';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 const ActionButton = ({
@@ -10,14 +11,22 @@ const ActionButton = ({
 }) => {
 
   return (
-      <TouchableHighlight
+      <TouchableOpacity
         onPress={onPress}
-        style={{backgroundColor: argonTheme.COLORS.ACTIVE, marginBottom: '3%', borderRadius: 10}}
+        style={{
+          backgroundColor: argonTheme.COLORS.ACTIVE, 
+          marginBottom: '3%', 
+          borderRadius: 10, 
+          shadowColor: argonTheme.COLORS.BLACK,
+          shadowOffset: { width: 3, height: 5},
+          shadowOpacity: 0.3
+        
+        }}
       >
         <View style={styles.button}>
           <Text style={styles.buttonText}>{title}</Text>
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
   )
 }
 

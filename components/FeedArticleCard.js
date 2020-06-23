@@ -9,9 +9,50 @@ import {
 import { Block, Text } from "galio-framework";
 import argonTheme from "../constants/argonTheme";
 import nerdProfiles from "../constants/nerdProfiles";
-import {OpenLink} from '../navigation/InAppBrowser';
+import InAppBrowser from 'react-native-inappbrowser-reborn';
 
 export default function FeedArticleCard ({item}) {
+    async function OpenLink() {
+        try {
+          const url = item.url;
+          if (await InAppBrowser.isAvailable()) {
+            const result = await InAppBrowser.open(url , {
+              // iOS Properties
+              dismissButtonStyle: 'close',
+              preferredBarTintColor: argonTheme.COLORS.WHITE,
+              preferredControlTintColor: argonTheme.COLORS.ACTIVE,
+              readerMode: false,
+              animated: true,
+              modalPresentationStyle: 'overFullScreen',
+              /*modalTransitionStyle: 'partialCurl',
+              modalEnabled: true,
+              enableBarCollapsing: false,
+              // Android Properties
+              showTitle: true,
+              toolbarColor: '#6200EE',
+              secondaryToolbarColor: 'black',
+              enableUrlBarHiding: true,
+              enableDefaultShare: true,
+              forceCloseOnRedirection: false,
+              // Specify full animation resource identifier(package:anim/name)
+              // or only resource name(in case of animation bundled with app).
+              animations: {
+                startEnter: 'slide_in_right',
+                startExit: 'slide_out_left',
+                endEnter: 'slide_in_left',
+                endExit: 'slide_out_right'
+              },
+              headers: {
+                'my-custom-header': 'my custom header value'
+              }
+            */})
+            console.log(result);
+          }
+          else Linking.openURL(url)
+        } catch (error) {
+          console.log(error.message)
+        }
+      }
 
     return (
         <Block style={styles.container}>
@@ -32,7 +73,7 @@ export default function FeedArticleCard ({item}) {
                             <Text
                             style={{fontFamily: 'OpenSans-regular', fontSize: 14, paddingLeft: '1%', color: argonTheme.COLORS.TEXT}}
                             numberOfLines={1}
-                            >{item.date} - {item.publisher}
+                            >{item.sourcename}
                             </Text>
                         </Block>
                     </Block>
@@ -40,7 +81,7 @@ export default function FeedArticleCard ({item}) {
             </Block>
             <TouchableWithoutFeedback onPress={OpenLink}>
             <Image 
-            source={{ uri: item.image }} 
+            source={{ uri: item.urltoimage }} 
             style={styles.image}
             />
             </TouchableWithoutFeedback>

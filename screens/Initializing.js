@@ -1,26 +1,16 @@
 import React from 'react'
-import { View, StyleSheet, Animated } from 'react-native'
+import { View, StyleSheet, Image, ActivityIndicator } from 'react-native'
+import argonTheme from '../constants/argonTheme';
 import Images from '../constants/Images';
 
 class SignIn extends React.Component {
-  animatedValue = new Animated.Value(.75)
   
-  animate = () => {
-    Animated.timing(
-      this.animatedValue,
-      {
-        toValue: 2,
-        duration: 2500
-      }
-    ).start()
-  }
   render() {
     return (
       <View style={styles.container}>
-        <Animated.Image
-          style={[styles.logo, { transform: [{ scale: this.animatedValue }]}]}
-          resizeMode='contain'
-          source={Images.blob}
+        <ActivityIndicator
+        size='large'
+        color={argonTheme.COLORS.ACTIVE}
         />
       </View>
     )
@@ -32,9 +22,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  logo: {
-    height: 50
   }
 })
 

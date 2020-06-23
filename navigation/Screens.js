@@ -17,6 +17,10 @@ import FeedHeader from '../components/FeedHeader';
 import CustomDrawerContent from "../navigation/Menu";
 import Search from '../screens/Search';
 
+import Auth from '../screens/auth/Auth';
+import Initializing from '../screens/auth/Auth';
+import { Auth as AmplifyAuth } from 'aws-amplify'
+
 export const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
@@ -200,7 +204,7 @@ function HomeStack() {
     );
 }
 
-function AppStack(props) {
+function AppStack() {
     return (
       <Drawer.Navigator
         style={{ flex: 1 }}
@@ -237,6 +241,42 @@ function AppStack(props) {
     );
   }
 
+
+  class AuthStack extends React.Component {
+    state = {
+      currentView: 'initializing'
+    }
+    componentDidMount() {
+      this.checkAuth()
+    }
+    updateAuth = (currentView) => {
+      this.setState({ currentView })
+    }
+    checkAuth = async () => {
+      try {
+        await AmplifyAuth.currentAuthenticatedUser()
+        console.log('user is signed in')
+        this.setState({ currentView: 'mainNav' })
+      } catch (err) {
+        console.log('user is not signed in')
+        this.setState({ currentView: 'auth' })
+      }
+    }
+    
+    render() {
+    // Set current view for authenticated or not authenticated users
+      const { currentView } = this.state
+      console.log('currentView: ', currentView)
+      return (
+            <>
+              { currentView === 'initializing' && <Initializing />}
+              { currentView === 'auth' && <Auth updateAuth={this.updateAuth} />}
+              { currentView === 'mainNav' && <AppStack updateAuth={this.updateAuth} />}
+            </>
+      )
+    }
+  }
+
 // AWS AUTH
 
-export default AppStack
+export default AuthStack;

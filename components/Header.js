@@ -4,9 +4,10 @@ import { TouchableOpacity, StyleSheet, Platform, Dimensions } from 'react-native
 import { Button, Block, NavBar, Text, theme } from 'galio-framework';
 
 import Icon from './Icon';
-import Input from './Input';
+import Input from './Auth/Input';
 import Tabs from './Tabs';
 import argonTheme from '../constants/argonTheme';
+import { array } from 'prop-types';
 
 const { height, width } = Dimensions.get('window');
 const iPhoneX = () => Platform.OS === 'ios' && (height === 812 || width === 812 || height === 896 || width === 896);
@@ -83,10 +84,10 @@ class Header extends React.Component {
     return (
       <Input
         right
-        color="black"
+        color={argonTheme.COLORS.WHITE}
         style={styles.search}
         placeholder="Who are you looking for?"
-        placeholderTextColor={'#8898AA'}
+        placeholderTextColor={argonTheme.COLORS.MUTED}
         onFocus={() => navigation.navigate('Search')}
         iconContent={<Icon size={16} color={theme.COLORS.MUTED} name="search" family="Feather" />}
       />
@@ -201,6 +202,7 @@ const styles = StyleSheet.create({
     paddingBottom: theme.SIZES.BASE * 1.5,
     paddingTop: iPhoneX ? theme.SIZES.BASE * 4 : theme.SIZES.BASE,
     zIndex: 5,
+    backgroundColor: argonTheme.COLORS.WHITE
   },
   notify: {
     backgroundColor: argonTheme.COLORS.LABEL,

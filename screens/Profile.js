@@ -7,8 +7,6 @@ import {
   View
 } from "react-native";
 import { Block, Text} from "galio-framework";
-import Icon from '../components/Icon';
-
 import Button from "../components/Button";
 import argonTheme from "../constants/argonTheme";
 import { FlatList, TouchableWithoutFeedback } from "react-native-gesture-handler";

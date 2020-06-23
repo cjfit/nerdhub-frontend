@@ -9,7 +9,7 @@ import {
 import { Block, Text } from "galio-framework";
 import argonTheme from "../constants/argonTheme";
 import nerdProfiles from "../constants/nerdProfiles";
-import Icon from '../components/Icon';
+import Icon from './Icon';
 
 export default function FeedVideoCard ({item}) {
     const handleClick = () => {

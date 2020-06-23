@@ -8,8 +8,6 @@ import { StyleSheet } from "react-native";
 import { Button } from 'react-native-elements';
 import Icon from '../components/Icon';
 
-
-
 export default function FeedVideos() {
   renderVideoItem = ({item}) => {
     return (

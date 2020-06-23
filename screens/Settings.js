@@ -171,7 +171,7 @@ function Settings() {
                     style={{fontFamily:'OpenSans-regular', fontSize: 18, color: argonTheme.COLORS.MUTED}}
                     >Dark Mode</Text>
                     <Switch
-                    trackColor={{ false: argonTheme.COLORS.TEXT, true: argonTheme.COLORS.ACTIVE }}
+                    trackColor={{ false: argonTheme.COLORS.MUTED, true: argonTheme.COLORS.ACTIVE }}
                     thumbColor={isEnabled ? argonTheme.COLORS.WHITE : argonTheme.COLORS.WHITE}
                     ios_backgroundColor="#3e3e3e"
                     onValueChange={toggleDark}
@@ -188,6 +188,7 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '90%',
         alignSelf: 'center',
+        backgroundColor: argonTheme.COLORS.WHITE
     },
     subContainer: {
         flexDirection: 'row',

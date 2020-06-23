@@ -2,9 +2,9 @@ import { Linking, Alert } from 'react-native'
 import InAppBrowser from 'react-native-inappbrowser-reborn';
 import argonTheme from '../constants/argonTheme';
 
-async function OpenLink() {
+async function OpenLink({item}) {
     try {
-      const url = 'https://openzang.netlify.app/';
+      const url = item.url;
       if (await InAppBrowser.isAvailable()) {
         const result = await InAppBrowser.open(url , {
           // iOS Properties

@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from 'react'
 import { View, StyleSheet } from 'react-native'
-import ActionButton from '../../components/ActionButton'
-import Input from '../../components/Input'
+import ActionButton from '../../components/Auth/ActionButton'
+import Input from '../../components/Auth/Input'
 import { Auth } from 'aws-amplify'
 import argonTheme from '../../constants/argonTheme'
 
@@ -25,10 +25,12 @@ class SignIn extends Component {
       await Auth.signUp({ username, password, attributes: { email }})
       console.log('successful sign up..')
       this.setState({ stage: 1 })
-    } catch (err) {
-      console.log('error signing up...', err)
+    } catch (code) {
+      console.log('error signing up...', code)
+      alert(code.message)
     }
-  }
+  
+}
   confirmSignUp = async () => {
     const { username, authCode } = this.state
     try {
@@ -50,23 +52,21 @@ class SignIn extends Component {
                 onChangeText={this.onChangeText}
               />
               <Input
+                placeholder='Email'
+                type='email'
+                onChangeText={this.onChangeText}
+              />
+              <Input
                 placeholder='Password'
                 type='password'
                 onChangeText={this.onChangeText}
                 secureTextEntry
               />
               <Input
-                placeholder='Email'
-                type='email'
-                onChangeText={this.onChangeText}
-              />
-              {/* 
-              If you would like to enable phone number as an attribute, uncomment this field
-              <Input
                 placeholder='Phone Number'
                 type='phone_number'
                 onChangeText={this.onChangeText}
-              /> */}
+              /> 
               <ActionButton
                 title='Sign Up'
                 onPress={this.signUp}
