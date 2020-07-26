@@ -4,7 +4,7 @@ import { TouchableOpacity, StyleSheet, Platform, Dimensions } from 'react-native
 import { Button, Block, NavBar, Text, theme } from 'galio-framework';
 
 import Icon from './Icon';
-import Input from './Auth/Input';
+import SearchBar from '../components/SearchBar';
 import Tabs from './Tabs';
 import argonTheme from '../constants/argonTheme';
 import { array } from 'prop-types';
@@ -82,14 +82,8 @@ class Header extends React.Component {
   renderSearch = () => {
     const { navigation } = this.props;
     return (
-      <Input
-        right
-        color={argonTheme.COLORS.WHITE}
-        style={styles.search}
+      <SearchBar
         placeholder="Who are you looking for?"
-        placeholderTextColor={argonTheme.COLORS.MUTED}
-        onFocus={() => navigation.navigate('Search')}
-        iconContent={<Icon size={16} color={theme.COLORS.MUTED} name="search" family="Feather" />}
       />
     );
   }
@@ -153,7 +147,7 @@ class Header extends React.Component {
     ];
 
     return (
-      <Block style={headerStyles}>
+      <Block style={styles.background}>
         <NavBar
           back={false}
           title={title}
@@ -171,7 +165,7 @@ class Header extends React.Component {
               style={{ marginTop: 2 }}
               />
           }
-          leftStyle={{ paddingVertical: 12, flex: 0.2 }}
+          leftStyle={{ paddingVertical: 12 }}
           titleStyle={[
             styles.title,
             { color: argonTheme.COLORS[white ? 'WHITE' : 'TEXT'] },
@@ -191,18 +185,17 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   title: {
-    width: '100%',
     fontSize: 16,
     fontWeight: 'bold',
-    textAlign: 'center',
-    left: '7%'
+    alignSelf: 'center'
+  },
+  background: {
+    backgroundColor: argonTheme.COLORS.WHITE
   },
   navbar: {
-    paddingVertical: 0,
-    paddingBottom: theme.SIZES.BASE * 1.5,
-    paddingTop: iPhoneX ? theme.SIZES.BASE * 4 : theme.SIZES.BASE,
+    paddingTop: '10%',
+    paddingBottom: 0,
     zIndex: 5,
-    backgroundColor: argonTheme.COLORS.WHITE
   },
   notify: {
     backgroundColor: argonTheme.COLORS.LABEL,
@@ -214,7 +207,7 @@ const styles = StyleSheet.create({
     right: 12,
   },
   header: {
-    backgroundColor: theme.COLORS.WHITE,
+    backgroundColor: argonTheme.COLORS.WHITE,
   },
   divider: {
     borderRightWidth: 0.3,

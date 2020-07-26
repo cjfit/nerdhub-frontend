@@ -7,9 +7,9 @@ import {
   Linking,
 } from "react-native";
 import { Block, Text } from "galio-framework";
-import argonTheme from "../constants/argonTheme";
-import nerdProfiles from "../constants/nerdProfiles";
-import Icon from './Icon';
+import argonTheme from "../../constants/argonTheme";
+import nerdProfiles from "../../constants/nerdProfiles";
+import Icon from '../Icon';
 
 export default function FeedVideoCard ({item}) {
     const handleClick = () => {
@@ -73,7 +73,7 @@ export default function FeedVideoCard ({item}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        width: '95%',
+        width: '100%',
         height: 300,
         marginBottom: '10%',
         marginTop: '5%',

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useContext } from "react";
 import { StyleSheet, Button, Dimensions } from "react-native";
 import { Block, Text} from "galio-framework";
 import Icon from '../components/Icon';
@@ -7,6 +7,8 @@ import argonTheme from "../constants/argonTheme";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Auth } from 'aws-amplify'
+import { AuthContext } from '../navigation/Screens';
+
 
 function Settings() {
     const navigation = useNavigation();
@@ -14,12 +16,14 @@ function Settings() {
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     const [isDark, setDark] = useState(false);
     const toggleDark = () => setDark(previousState => !previousState)
+    const updateAuth = useContext(AuthContext);
+    
     // Sign Out function
     async function signOut() {
         try {
           await Auth.signOut()
           console.log('signed out')
-          this.props.updateAuth('auth')
+          updateAuth('auth');
         } catch (err) {
           console.log('error signing out...', err)
         }

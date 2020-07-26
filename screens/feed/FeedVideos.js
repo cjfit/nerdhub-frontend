@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import argonTheme from '../constants/argonTheme';
+import argonTheme from '../../constants/argonTheme';
 import { Block, Text } from 'galio-framework';
-import nerdProfiles from '../constants/nerdProfiles';
-import FeedVideoCard from "../components/FeedVideoCard";
+import nerdProfiles from '../../constants/nerdProfiles';
+import FeedVideoCard from "../../components/Feed/FeedVideoCard";
 import { FlatList, TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { StyleSheet } from "react-native";
 import { Button } from 'react-native-elements';
-import Icon from '../components/Icon';
+import Icon from '../../components/Icon';
 
 export default function FeedVideos() {
   renderVideoItem = ({item}) => {
@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
   motherContainer: {
     flex: 1,
     alignSelf: 'center',
+    width: '90%'
   }
 
 })

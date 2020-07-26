@@ -5,7 +5,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import FeedScreens from '../screens/FeedScreens';
+import FeedScreens from '../screens/feed/FeedScreens';
 import Explore from "../screens/Explore";
 import NerdList from "../screens/NerdList";
 import Profile from "../screens/Profile";
@@ -24,11 +24,11 @@ import { Auth as AmplifyAuth } from 'aws-amplify'
 export const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
-const TabTop = createMaterialTopTabNavigator();
 const { width } = Dimensions.get("screen");
 
 //auth flow at bottom of file
 
+// Feed screens
 function FeedTabs() {
   return (
     <Stack.Navigator 
@@ -38,7 +38,7 @@ function FeedTabs() {
     screenOptions={{
       header: ({navigation, scene}) => {
         return (
-          <FeedHeader
+          <Header
           title='Feed'
           navigation={navigation}
           scene={scene}
@@ -53,6 +53,7 @@ function FeedTabs() {
   )
 }
 
+// Search Screens
 function SearchStack() {
   return (
     <Stack.Navigator mode='card' headerMode='screen'>
@@ -61,6 +62,7 @@ function SearchStack() {
   )
 }
 
+// Explore Screens
 function ExploreStack() {
     return (
       <Stack.Navigator mode="card" headerMode="screen">
@@ -82,6 +84,7 @@ function ExploreStack() {
     )
 }
 
+// Nerdlist Screens
 function NerdListStack() {
     return (
       <Stack.Navigator mode="card" headerMode="screen">
@@ -137,10 +140,12 @@ function NerdListStack() {
     )
 }
 
-function SettingsStack() {
+// Settings Screens
+function SettingsStack(props) {
   return (
     <Stack.Navigator mode='card' headerMode='screen'>
       <Stack.Screen 
+        updateAuth={props}
         name="Settings"
         component={Settings}
         options={{
@@ -158,6 +163,7 @@ function SettingsStack() {
   )
 }
 
+// Main App Stack tab navigator
 function HomeStack() {
     return (
       <Tab.Navigator
@@ -204,7 +210,8 @@ function HomeStack() {
     );
 }
 
-function AppStack() {
+// Main App Stack drawer navigator
+function AppStack(props) {
     return (
       <Drawer.Navigator
         style={{ flex: 1 }}
@@ -235,48 +242,51 @@ function AppStack() {
         }}
         initialRouteName="Home"
       >
-        <Drawer.Screen name="Home" component={HomeStack} />
-        <Drawer.Screen name="Settings" component={SettingsStack} />
+        <Drawer.Screen name="Home" component={HomeStack}/>
+        <Drawer.Screen name="Settings" component={SettingsStack} updateAuth={props}/>
       </Drawer.Navigator> 
     );
   }
 
+  // Authentication flow and AuthStack
 
-  class AuthStack extends React.Component {
-    state = {
-      currentView: 'initializing'
-    }
-    componentDidMount() {
-      this.checkAuth()
-    }
-    updateAuth = (currentView) => {
-      this.setState({ currentView })
-    }
-    checkAuth = async () => {
+  // Create Auth context 
+  export const AuthContext = React.createContext();
+  // Auth Stack
+  function AuthStack() {
+  // Auth state management via useState hook
+    const [currentView, setCurrentView] = useState('initializing');
+  // Checks if user is currently authenticated/signed in
+  // Sets current view to main app if true
+  // Sets current view to auth screens if false
+    async function checkAuth() {
       try {
         await AmplifyAuth.currentAuthenticatedUser()
         console.log('user is signed in')
-        this.setState({ currentView: 'mainNav' })
+        setCurrentView('mainNav')
       } catch (err) {
         console.log('user is not signed in')
-        this.setState({ currentView: 'auth' })
+        setCurrentView('auth')
       }
     }
-    
-    render() {
+
+    useEffect( () => {
+      checkAuth();
+    }, []);
+
     // Set current view for authenticated or not authenticated users
-      const { currentView } = this.state
-      console.log('currentView: ', currentView)
-      return (
-            <>
-              { currentView === 'initializing' && <Initializing />}
-              { currentView === 'auth' && <Auth updateAuth={this.updateAuth} />}
-              { currentView === 'mainNav' && <AppStack updateAuth={this.updateAuth} />}
-            </>
-      )
-    }
+    console.log('currentView: ', currentView)
+
+    // Assigns Auth context provider a value of setCurrentView so the auth state may be changed from all nested screens
+    return (
+            <AuthContext.Provider value={setCurrentView}>
+              { currentView === 'initializing' && <Initializing/>}
+              { currentView === 'auth' && <Auth/>}
+              { currentView === 'mainNav' && <AppStack/>}
+            </AuthContext.Provider>
+    )
   }
 
 // AWS AUTH
 
-export default AuthStack;
+export default AppStack;

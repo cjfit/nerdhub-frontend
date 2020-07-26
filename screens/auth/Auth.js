@@ -1,64 +1,75 @@
-import React from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {
-  View, Text, StyleSheet, Image, Dimensions, KeyboardAvoidingView, Platform
+  View, Text, StyleSheet, Image, Dimensions, Platform
 } from 'react-native'
-
+import {AuthContext} from '../../navigation/Screens';
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 import ForgotPassword from './ForgotPassword'
 import Images from '../../constants/Images';
 import argonTheme from '../../constants/argonTheme';
 
+// Get width of screen
 const { width } = Dimensions.get('window')
 
-class Auth extends React.Component {
-  state = {
-    showSignUp: false,
-    formType: 'showSignIn'
-  }
-  toggleAuthType = formType => {
-    this.setState({ formType })
-  }
-  render() {
-    const showSignIn = this.state.formType === 'showSignIn'
-    const showSignUp = this.state.formType === 'showSignUp'
-    const showForgotPassword = this.state.formType === 'showForgotPassword'
-    return (
-      <KeyboardAvoidingView
-      style={styles.container}
-        behavior={Platform.Os == "ios" ? "padding" : "height"}
-      >
-          <Image
-            style={styles.logo}
-            resizeMode='contain'
-            source={Images.DrawerLogo2}
-          />
-          { showSignIn && (
-            <SignIn
-              toggleAuthType={this.toggleAuthType}
-              updateAuth={() => this.props.updateAuth('mainNav')}
+// Create context for toggleAuthType function
+export const ToggleContext = React.createContext();
+
+// Auth Screens parent component
+function Auth() {
+
+// Assign updateAuth function from AuthContext to a variable
+  const updateAuth = useContext(AuthContext);
+
+  // FormType state management via useState hook
+  const [formType, setFormType] = useState('showSignIn');
+
+    // Sets form type
+    function toggleAuthType(formType) {
+      setFormType(formType);
+    }
+
+      const showSignIn = formType === 'showSignIn'
+      const showSignUp = formType === 'showSignUp'
+      const showForgotPassword = formType === 'showForgotPassword'
+      
+      return (
+        <ToggleContext.Provider value={toggleAuthType}>
+        <View
+        style={styles.container}
+          behavior={Platform.Os == "ios" ? "padding" : "height"}
+        >
+            <Image
+              style={styles.logo}
+              resizeMode='contain'
+              source={Images.DrawerLogo2}
             />
-          ) }
-          { showSignUp && <SignUp toggleAuthType={this.toggleAuthType} /> }
-          { showForgotPassword && <ForgotPassword toggleAuthType={this.toggleAuthType} /> }
-          <View style={{ position: 'absolute', bottom: 40 }}>
-            {
-              showSignUp || showForgotPassword ? (
-                <Text style={styles.bottomMessage}>Already signed up? <Text
-                style={styles.bottomMessageHighlight}
-                onPress={() => this.toggleAuthType('showSignIn')}>&nbsp;&nbsp;Sign In</Text></Text>
-              ) : (
-                <Text style={styles.bottomMessage}>Need an account?
-                  <Text
-                    onPress={() => this.toggleAuthType('showSignUp')}
-                    style={styles.bottomMessageHighlight}>&nbsp;&nbsp;Sign Up</Text>
-                </Text>
-              )
-            }
-          </View>
-      </KeyboardAvoidingView>
-    )
-  }
+            { showSignIn && (
+              <SignIn
+                toggleAuthType={toggleAuthType}
+                updateAuth={() => updateAuth('mainNav')}
+              />
+            ) }
+            { showSignUp && <SignUp toggleAuthType={toggleAuthType} /> }
+            { showForgotPassword && <ForgotPassword toggleAuthType={toggleAuthType} /> }
+            <View style={{ position: 'absolute', bottom: 40 }}>
+              {
+                showSignUp || showForgotPassword ? (
+                  <Text style={styles.bottomMessage}>Already signed up? <Text
+                  style={styles.bottomMessageHighlight}
+                  onPress={() => toggleAuthType('showSignIn')}>&nbsp;&nbsp;Sign In</Text></Text>
+                ) : (
+                  <Text style={styles.bottomMessage}>Need an account?
+                    <Text
+                      onPress={() => toggleAuthType('showSignUp')}
+                      style={styles.bottomMessageHighlight}>&nbsp;&nbsp;Sign Up</Text>
+                  </Text>
+                )
+              }
+            </View>
+        </View>
+        </ToggleContext.Provider>
+      )
 }
 
 const styles = StyleSheet.create({
@@ -66,8 +77,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingBottom: 40,
-    backgroundColor: argonTheme.COLORS.OFF_WHITE_BACKGROUND
+    backgroundColor: argonTheme.COLORS.OFF_WHITE_BACKGROUND,
+    width: '100%'
   },  
   logo: {
     height: width / 3.3,

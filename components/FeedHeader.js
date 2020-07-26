@@ -34,7 +34,7 @@ function FeedHeader(props) {
               style={{ marginTop: 2 }}
               />
           }
-          leftStyle={{ paddingVertical: 12, flex: 0.2 }}
+          leftStyle={{ paddingVertical: 12, flex: 0.2, paddingLeft: '4%' }}
           titleStyle={[
             styles.title,
             { color: argonTheme.COLORS[white ? 'WHITE' : 'TEXT'] },
@@ -56,13 +56,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
-    left: '7%'
+    left: '3%'
   },
   navbar: {
-    paddingVertical: 0,
-    paddingBottom: theme.SIZES.BASE * 1.5,
-    paddingTop: iPhoneX ? theme.SIZES.BASE * 4 : theme.SIZES.BASE,
+    paddingTop: '10%',
+    paddingBottom: 0,
     zIndex: 5,
+    alignItems: 'center',
   },
   shadow: {
     backgroundColor: theme.COLORS.WHITE,

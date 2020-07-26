@@ -14,7 +14,7 @@
         "categories": {
             "auth": {
                 "nerdhub26f86dcf": {
-                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"248832469867696\",\"client_secret\":\"52088edd04afe692d450970581d7f306\"},{\"ProviderName\":\"Google\",\"client_id\":\"1059389696323-mkbakhcdu63b00e8dj3nu5sotkfhic5o.apps.googleusercontent.com\",\"client_secret\":\"gbiGsRu7fKyzWf_-NUZpDX8i\"}]"
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"297144464809002\",\"client_secret\":\"6d85bca74578d9d20d2b35030d9750f9\"},{\"ProviderName\":\"Google\",\"client_id\":\"454804467950-qf698jrll4i888ljimbl5668afuo88vk.apps.googleusercontent.com\",\"client_secret\":\"kc5AOGobrZ_oknIDa8_-Sdt2\"}]"
                 }
             }
         }

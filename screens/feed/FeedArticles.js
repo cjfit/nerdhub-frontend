@@ -4,10 +4,9 @@ import ApolloClient, {gql} from 'apollo-boost';
 import { StyleSheet, View, ActivityIndicator, FlatList } from 'react-native';
 import { Block, Text } from 'galio-framework';
 import { Button } from 'react-native-elements';
-import Icon from '../components/Icon';
-import argonTheme from '../constants/argonTheme';
-import FeedArticleCard from '../components/FeedArticleCard';
-
+import Icon from '../../components/Icon';
+import argonTheme from '../../constants/argonTheme';
+import FeedArticleCard from '../../components/Feed/FeedArticleCard';
 
 // AWS RDS postgres database endpoint
 const postGresURI = 'http://ec2-13-59-107-152.us-east-2.compute.amazonaws.com/v1/graphql';
@@ -131,7 +130,7 @@ export default function FeedArticles() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    width: '90%'
   },
   header: {
     marginTop: 50,

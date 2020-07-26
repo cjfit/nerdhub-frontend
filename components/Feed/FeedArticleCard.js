@@ -7,21 +7,54 @@ import {
   Linking,
 } from "react-native";
 import { Block, Text } from "galio-framework";
-import argonTheme from "../constants/argonTheme";
-import nerdProfiles from "../constants/nerdProfiles";
+import argonTheme from "../../constants/argonTheme";
+import nerdProfiles from "../../constants/nerdProfiles";
+import InAppBrowser from 'react-native-inappbrowser-reborn';
 
 export default function FeedArticleCard ({item}) {
-    const handleClick = () => {
-      Linking.canOpenURL(this.props.url).then(supported => {
-        if (supported) {
-          Linking.openURL(this.props.url);
-        } else {
-          console.log("Don't know how to open URL: " + this.props.url);
+    async function OpenLink() {
+        try {
+          const url = item.url;
+          if (await InAppBrowser.isAvailable()) {
+            const result = await InAppBrowser.open(url , {
+              // iOS Properties
+              dismissButtonStyle: 'close',
+              preferredBarTintColor: argonTheme.COLORS.WHITE,
+              preferredControlTintColor: argonTheme.COLORS.ACTIVE,
+              readerMode: false,
+              animated: true,
+              modalPresentationStyle: 'overFullScreen',
+              /*modalTransitionStyle: 'partialCurl',
+              modalEnabled: true,
+              enableBarCollapsing: false,
+              // Android Properties
+              showTitle: true,
+              toolbarColor: '#6200EE',
+              secondaryToolbarColor: 'black',
+              enableUrlBarHiding: true,
+              enableDefaultShare: true,
+              forceCloseOnRedirection: false,
+              // Specify full animation resource identifier(package:anim/name)
+              // or only resource name(in case of animation bundled with app).
+              animations: {
+                startEnter: 'slide_in_right',
+                startExit: 'slide_out_left',
+                endEnter: 'slide_in_left',
+                endExit: 'slide_out_right'
+              },
+              headers: {
+                'my-custom-header': 'my custom header value'
+              }
+            */})
+            console.log(result);
+          }
+          else Linking.openURL(url)
+        } catch (error) {
+          console.log(error.message)
         }
-      })};
+      }
 
     return (
-      <TouchableWithoutFeedback>
         <Block style={styles.container}>
             <Block>
                 <Block flexDirection='row' style={styles.bottom}>
@@ -34,32 +67,33 @@ export default function FeedArticleCard ({item}) {
                         style={{fontFamily: 'OpenSans-bold', fontSize: 14, paddingLeft: '2%', color: argonTheme.COLORS.TEXT}}
                         numberOfLines={1}
                         >
-                        {item.host} - {item.podcast}
+                        {item.author}
                         </Text>
                         <Block flexDirection='row'>
                             <Text
                             style={{fontFamily: 'OpenSans-regular', fontSize: 14, paddingLeft: '1%', color: argonTheme.COLORS.TEXT}}
                             numberOfLines={1}
-                            >{item.date} - {item.publisher}
+                            >{item.sourcename}
                             </Text>
                         </Block>
                     </Block>
                 </Block>
             </Block>
+            <TouchableWithoutFeedback onPress={OpenLink}>
             <Image 
-            source={{ uri: item.image }} 
+            source={{ uri: item.urltoimage }} 
             style={styles.image}
             />
+            </TouchableWithoutFeedback>
             <Text 
             style={{fontFamily: 'OpenSans-regular', fontSize: 14, marginTop: '3%'}}
             numberOfLines={2}
             >
             {item.title}
-            </Text>            
+            </Text>        
             <Block flexDirection='row'>
             </Block>
         </Block>
-      </TouchableWithoutFeedback>
     );
 }
 

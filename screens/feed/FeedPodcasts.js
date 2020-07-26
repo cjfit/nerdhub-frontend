@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import argonTheme from '../constants/argonTheme';
+import argonTheme from '../../constants/argonTheme';
 import { Block, Text } from 'galio-framework';
-import nerdProfiles from '../constants/nerdProfiles';
-import FeedPodcastCard from '../components/FeedPodcastCard';
+import nerdProfiles from '../../constants/nerdProfiles';
+import FeedPodcastCard from '../../components/Feed/FeedPodcastCard';
 import { FlatList, TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { StyleSheet } from "react-native";
 import { Button } from 'react-native-elements';
-import Icon from '../components/Icon';
+import Icon from '../../components/Icon';
 
 
 
@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
   motherContainer: {
     flex: 1,
     alignSelf: 'center',
+    width: '90%'
   }
 
 })

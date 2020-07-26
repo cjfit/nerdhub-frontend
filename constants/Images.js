@@ -4,6 +4,7 @@ const DrawerLogo = require("../assets/imgs/forWeb/png/drawerLogo.png")
 const DrawerLogo2 = require("../assets/imgs/forWeb/png/color_no_background.png")
 const OnboardingLogo = require('../assets/imgs/forWeb/png/whiteLogo.png')
 const blob = require("../assets/imgs/blob.png")
+const signInBackground = require("../assets/imgs/rainbow.jpg")
 
 
 
@@ -17,5 +18,6 @@ export default {
   DrawerLogo, 
   DrawerLogo2,
   OnboardingLogo,
-  blob
+  blob,
+  signInBackground
 };

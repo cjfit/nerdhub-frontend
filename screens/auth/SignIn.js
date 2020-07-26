@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useContext } from 'react'
+import {AuthContext} from '../../navigation/Screens';
+import {ToggleContext} from './Auth';
 import { View, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 import { Text } from 'galio-framework';
 import { Auth } from 'aws-amplify'
@@ -8,49 +10,58 @@ import ActionButton from '../../components/Auth/ActionButton'
 import SocialButton from '../../components/Auth/SocialButton';
 import GoogleButton from '../../components/Auth/GoogleButton';
 
-class SignIn extends Component {
-  state = {
-    username: '',
-    password: '',
-  }
-  onChangeText = (key, value) => {
-    this.setState({ [key]: value })
-  }
-  signIn = async () => {
-    const { username, password } = this.state
+
+// Sign in screen
+function SignIn() {
+  // Assigns updateAuth function to a variable
+  // Assigns toggleAuthType function to a variable
+  const updateAuth = useContext(AuthContext);
+  const toggleAuthType = useContext(ToggleContext);
+
+  // Username and Password state management via useState hooks
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  
+  // Sign In function
+  // Attempts to sign in with given username and password 
+  // * Note that Auth.signIn returns a promise in the form of an object
+  // Sets current view to the main app if the Auth.signIn promise resolves to a success
+  // Logs error and alerts if the Auth.Sign promise resolves to a failure
+  async function signIn() {
     try {
       await Auth.signIn(username, password)
       console.log('successfully signed in')
-      this.props.updateAuth('MainNav')
+      updateAuth('MainNav')
     } catch (code) {
       console.log('error signing in...', code)
       alert(code.message)
     }
   }
-  showForgotPassword = () => {
-    this.props.toggleAuthType('showForgotPassword')
+
+  function showForgotPassword() {
+    toggleAuthType('showForgotPassword')
   }
-  render() {
+
     return (
       <View>
         <Input
-          onChangeText={this.onChangeText}
+          onChangeText={(text) => {setUsername(text)}}
           type='username'
           placeholder='Username'
         />
         <Input
-          onChangeText={this.onChangeText}
+          onChangeText={(text) => {setPassword(text)}}
           type='password'
           placeholder='Password'
           secureTextEntry
         />
         <ActionButton
           title='Sign In'
-          onPress={this.signIn}
+          onPress={signIn}
           BGColor={argonTheme.COLORS.ACTIVE}
         />
         <View style={styles.buttonContainer}>
-          <TouchableWithoutFeedback onPress={this.showForgotPassword}>
+          <TouchableWithoutFeedback onPress={showForgotPassword}>
             <Text style={{fontSize: 16, fontFamily: 'OpenSans-regular'}}>Forget your password?</Text>
           </TouchableWithoutFeedback>
         </View>
@@ -80,18 +91,17 @@ class SignIn extends Component {
         </View>
       </View>
     )
-  }
 }
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    paddingTop: 15,
+    paddingTop: '2%',
     justifyContent: 'center',
     flexDirection: 'row',
   },
   
   socialCont: {
-    marginTop: '10%'
+    marginTop: '5%'
   },
 })
 

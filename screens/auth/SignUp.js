@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from 'react'
-import { View, StyleSheet } from 'react-native'
+import {KeyboardAvoidingView, StyleSheet } from 'react-native'
 import ActionButton from '../../components/Auth/ActionButton'
 import Input from '../../components/Auth/Input'
 import { Auth } from 'aws-amplify'
@@ -42,7 +42,7 @@ class SignIn extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
         {
           this.state.stage === Number(0) && (
             <Fragment>
@@ -90,7 +90,7 @@ class SignIn extends Component {
             </Fragment>
           )
         }
-      </View>
+      </KeyboardAvoidingView>
     )
   }
 }

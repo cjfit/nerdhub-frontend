@@ -4,7 +4,7 @@ import FeedPodcasts from './FeedPodcasts';
 import FeedVideos from './FeedVideos';
 import FeedArticles from './FeedArticles';
 import { Dimensions, StyleSheet, View } from 'react-native';
-import argonTheme from '../constants/argonTheme';
+import argonTheme from '../../constants/argonTheme';
 import { Text } from "galio-framework";
 
 
@@ -30,14 +30,15 @@ const renderTabBar = props => (
         inactiveColor={argonTheme.COLORS.MUTED}
         style={{ 
             backgroundColor: null,
-            height: 40
+            height: '5%',
         }}
         renderLabel={({ route, focused, color }) => (
             <Text 
             style={{ 
                 color, 
                 fontFamily: 'OpenSans-bold',
-                fontSize: 14
+                fontSize: 14,
+             
                 }}>
               {route.title}
             </Text>

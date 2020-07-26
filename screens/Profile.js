@@ -56,7 +56,10 @@ const renderTabBar = props => (
    
 
 export default function Profile(props) {
-
+    const [loading, setLoading] = useState(true);
+    async function profileLoaded() {
+        
+    }
     function renderCategories({item}) {
         const clr = selectCategory(item)
         return (
@@ -110,6 +113,7 @@ export default function Profile(props) {
         podcasts: PodcastsRoute
     });
 
+    
     return (
         <Block style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
