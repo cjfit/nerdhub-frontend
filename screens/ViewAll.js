@@ -3,8 +3,8 @@ import { Block } from "galio-framework";
 import { StyleSheet } from "react-native";
 import { FlatList, TouchableWithoutFeedback } from "react-native-gesture-handler";
 import nerdProfiles from "../constants/nerdProfiles";
-import ViewAllVideoCard from "../components/ViewAllVideoCard";
-import ViewAllArticleCard from '../components/ViewAllArticleCard';
+import ViewAllVideoCard from "../components/Profile/ViewAllVideoCard";
+import ViewAllArticleCard from '../components/Profile/ViewAllArticleCard';
 import argonTheme from "../constants/argonTheme";
 import { withNavigation } from "@react-navigation/compat";
 

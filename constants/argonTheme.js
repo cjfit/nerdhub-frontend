@@ -28,12 +28,16 @@ export default {
     BORDER: '#CAD1D7',
     WHITE: '#FFFFFF',
     BLACK: '#000000',
-    TWITTER: '#1DA1F2',
-    FACEBOOK: '#3B5999',
-    DRIBBBLE: '#EA4C89',
     LIGHT_TEXT: '#94969C',
     OFF_WHITE_BACKGROUND: '#F5F5F5',
-   
+    
+    //Brands
+    TWITTER: '#1DA1F2',
+    FACEBOOK: '#3B5999',
+    YOUTUBE: '#C4302B',
+    SPOTIFY: '#1DB954',
+
+    //Main Color Theme
     PORTLAND_ORANGE: '#F1482D',
     BUTTON_DISABLED: '#F8998B',
     RACKLEY: '#05A8AA',

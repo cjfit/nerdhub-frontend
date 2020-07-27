@@ -40,14 +40,14 @@ export default function FeedVideoCard ({item}) {
                             <Text
                             style={{fontFamily: 'OpenSans-regular', fontSize: 14, paddingLeft: '1%', color: argonTheme.COLORS.TEXT}}
                             numberOfLines={1}
-                            >April 17, 2019 - YouTube
+                            >YouTube
                             </Text>
                             <Icon 
                             name='youtube'
                             family='antdesign'
                             size={16}
-                            style={{paddingLeft: '1%', paddingTop: '0.5%'}}
-                            color={argonTheme.COLORS.ACTIVE}
+                            style={{paddingLeft: '1%', paddingTop: '0.6%'}}
+                            color={argonTheme.COLORS.YOUTUBE}
                             />
                         </Block>
                     </Block>

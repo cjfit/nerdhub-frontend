@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   background: {
-    backgroundColor: argonTheme.COLORS.WHITE
+    backgroundColor: argonTheme.COLORS.WHITE,
   },
   navbar: {
     paddingTop: '10%',

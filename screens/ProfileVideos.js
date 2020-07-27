@@ -3,7 +3,7 @@ import { Block, Text } from 'galio-framework';
 import argonTheme from "../constants/argonTheme";
 import { StyleSheet, ScrollView} from "react-native";
 import { FlatList, TouchableWithoutFeedback } from "react-native-gesture-handler";
-import ViewAllVideoCard from '../components/ViewAllVideoCard';
+import ViewAllVideoCard from '../components/Profile/ViewAllVideoCard';
 import nerdProfiles from '../constants/nerdProfiles';
 
 export default function ProfileVideos() {

@@ -13,7 +13,6 @@ import ViewAll from "../screens/ViewAll";
 import Settings from "../screens/Settings";
 import Icon from "../components/Icon";
 import Header from '../components/Header';
-import FeedHeader from '../components/FeedHeader';
 import CustomDrawerContent from "../navigation/Menu";
 import Search from '../screens/Search';
 

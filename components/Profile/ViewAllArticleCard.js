@@ -7,7 +7,7 @@ import {
   Linking
 } from "react-native";
 import { Block, Text } from "galio-framework";
-import argonTheme from "../constants/argonTheme";
+import argonTheme from "../../constants/argonTheme";
 
 class ViewAllArticleCard extends React.Component {
   render() {
