@@ -13,7 +13,7 @@ import { enableScreens } from 'react-native-screens';
 import SplashScreen from 'react-native-splash-screen';
 import Screens from './navigation/Screens';
 import Amplify from 'aws-amplify'
-import config from './aws-exports'
+//import config from './aws-exports'
 import ApolloClient, {gql} from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 

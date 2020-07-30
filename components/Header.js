@@ -4,7 +4,8 @@ import { TouchableOpacity, StyleSheet, Platform, Dimensions } from 'react-native
 import { Button, Block, NavBar, Text, theme } from 'galio-framework';
 
 import Icon from './Icon';
-import SearchBar from '../components/SearchBar';
+//import SearchBar from '../components/SearchBar';
+import { SearchBar } from 'react-native-elements';
 import Tabs from './Tabs';
 import argonTheme from '../constants/argonTheme';
 import { array } from 'prop-types';
@@ -82,9 +83,26 @@ class Header extends React.Component {
   renderSearch = () => {
     const { navigation } = this.props;
     return (
-      <SearchBar
-        placeholder="Who are you looking for?"
-      />
+    <SearchBar 
+      platform="ios"
+      placeholder="Who Are You Looking For?" 
+      containerStyle={{backgroundColor: argonTheme.COLORS.WHITE, width: '95%'}}
+      inputContainerStyle={{
+        backgroundColor: argonTheme.COLORS.WHITE,
+        borderWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: argonTheme.COLORS.ACTIVE
+      }}
+      inputStyle={{
+        fontFamily: 'OpenSans-regular',
+        color: argonTheme.COLORS.MUTED,
+        fontSize: 14
+      }}
+      cancelButtonProps={{
+        color: argonTheme.COLORS.ACTIVE, 
+        buttonTextStyle: {fontFamily: 'OpenSans-regular', fontSize: 14},       
+      }}
+    />
     );
   }
   renderOptions = () => {

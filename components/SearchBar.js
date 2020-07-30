@@ -22,6 +22,7 @@ const SearchBar = ({
       selectionColor={argonTheme.COLORS.ACTIVE}
       onFocus={() => setFocus(styles.shadowInput)}
       onBlur={() => setFocus(styles.input)}
+      returnKeyType='search'
     />
 )}
 
