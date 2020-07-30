@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "nerdhub3da47086_identitypool_3da47086",
+    "identityPoolName": "nerdhub39718c9f_identitypool_39718c9f",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "nerdhu3da47086",
-    "userPoolName": "nerdhub3da47086_userpool_3da47086",
+    "resourceNameTruncated": "nerdhu39718c9f",
+    "userPoolName": "nerdhub39718c9f_userpool_39718c9f",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "nerdhu3da47086_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "nerdhu39718c9f_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "3da47086",
-    "resourceName": "nerdhub3da47086",
+    "sharedId": "39718c9f",
+    "resourceName": "nerdhub39718c9f",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -47,8 +47,7 @@
     },
     "useDefault": "defaultSocial",
     "hostedUI": true,
-    "triggers": "{}",
-    "hostedUIDomainName": "nerdhub",
+    "hostedUIDomainName": "nerdhub-auth",
     "authProvidersUserPool": [
         "Facebook",
         "Google"
@@ -56,9 +55,5 @@
     "hostedUIProviderMeta": "[{\"ProviderName\":\"Facebook\",\"authorize_scopes\":\"email,public_profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"id\"}},{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
     "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\"]}",
     "userPoolGroupList": [],
-    "parentStack": {
-        "Ref": "AWS::StackId"
-    },
-    "permissions": [],
     "dependsOn": []
 }

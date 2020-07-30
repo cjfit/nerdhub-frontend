@@ -12,15 +12,8 @@
             "AmplifyAppId": "d2bzn752lt9qdn"
         },
         "categories": {
-            "function": {
-                "nerdhubb4fb5b10CustomMessage": {
-                    "REDIRECTURL": "https://nerdhub.netlify.app/",
-                    "EMAILSUBJECT": "Nerdhub Verification",
-                    "EMAILMESSAGE": "Please verify your nerdhub account, thank you!"
-                }
-            },
             "auth": {
-                "nerdhub3da47086": {
+                "nerdhub39718c9f": {
                     "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"297144464809002\",\"client_secret\":\"6d85bca74578d9d20d2b35030d9750f9\"},{\"ProviderName\":\"Google\",\"client_id\":\"454804467950-qf698jrll4i888ljimbl5668afuo88vk.apps.googleusercontent.com\",\"client_secret\":\"kc5AOGobrZ_oknIDa8_-Sdt2\"}]"
                 }
             }

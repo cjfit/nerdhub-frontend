@@ -1,16 +1,11 @@
 {
 	"auth": {
-		"nerdhub3da47086": {
+		"nerdhub39718c9f": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
-			"dependsOn": []
+			"dependsOn": [],
+			"customAuth": false
 		}
 	},
-	"function": {
-		"nerdhubb4fb5b10CustomMessage": {
-			"build": true,
-			"providerPlugin": "awscloudformation",
-			"service": "Lambda"
-		}
-	}
+	"function": {}
 }
