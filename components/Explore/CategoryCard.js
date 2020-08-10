@@ -3,9 +3,9 @@ import { StyleSheet } from "react-native";
 import PropTypes from 'prop-types';
 import { Button } from "galio-framework";
 
-import argonTheme from "../constants/argonTheme";
+import argonTheme from "../../constants/argonTheme";
 
-class ArButton extends React.Component {
+class CategoryCard extends React.Component {
   render() {
     const { small, shadowless, children, color, style, fontSize, ...props } = this.props;
     
@@ -22,7 +22,7 @@ class ArButton extends React.Component {
       <Button
         style={buttonStyles}
         shadowless
-        textStyle={{ fontSize: fontSize || 12, fontWeight: '700' }}
+        textStyle={{ fontSize: fontSize || 14, fontWeight: '700' }}
         {...props}
       >
         {children}
@@ -31,27 +31,19 @@ class ArButton extends React.Component {
   }
 }
 
-ArButton.propTypes = {
-  small: PropTypes.bool,
-  shadowless: PropTypes.bool,
-  color: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.oneOf(['default', 'primary', 'secondary', 'info', 'error', 'success', 'warning'])
-  ])
-}
 
 const styles = StyleSheet.create({
-  smallButton: {
-    width: 75,
-    height: 28
-  },
   shadow: {
     shadowColor: 'black',
-    shadowOffset: { width: 0, height: 4 },
+    shadowOffset: { width: 2, height: 2 },
     shadowRadius: 4,
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.25,
     elevation: 2,
   },
+  size: {
+      width: 50,
+      height: 100
+  }
 });
 
-export default ArButton;
+export default CategoryCard;

@@ -6,7 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import FeedScreens from '../screens/feed/FeedScreens';
-import Explore from "../screens/Explore";
+import Explore from "../screens/explore/Explore";
 import NerdList from "../screens/NerdList";
 import Profile from "../screens/Profile";
 import ViewAll from "../screens/ViewAll";
@@ -288,4 +288,4 @@ function AppStack(props) {
 
 // AWS AUTH
 
-export default AuthStack;
+export default AppStack;

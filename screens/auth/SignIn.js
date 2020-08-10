@@ -9,7 +9,10 @@ import Input from '../../components/Auth/Input'
 import ActionButton from '../../components/Auth/ActionButton'
 import SocialButton from '../../components/Auth/SocialButton';
 import GoogleButton from '../../components/Auth/GoogleButton';
+import Amplify, { Logger } from 'aws-amplify';
 
+Amplify.Logger.LOG_LEVEL = 'DEBUG';
+const logger = new Logger('foo', 'INFO');
 
 // Sign in screen
 function SignIn() {
@@ -32,9 +35,9 @@ function SignIn() {
       await Auth.signIn(username, password)
       console.log('successfully signed in')
       updateAuth('MainNav')
-    } catch (code) {
-      console.log('error signing in...', code)
-      alert(code.message)
+    } catch (e) {
+      logger.debug('error signing in...', e)
+      alert(e.message)
     }
   }
 

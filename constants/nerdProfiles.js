@@ -15,63 +15,72 @@ export default {
                     title: 'Joe Rogan Experience #1320 - Eric Weinstein',
                     url: 'https://www.youtube.com/watch?v=_EWCN3CPhTI',
                     channel: 'PowerfulJRE',
-                    date: '2019'
+                    date: '2019',
+                    contentType: 'video'
                     },
                     {
                     image: 'http://i3.ytimg.com/vi/nM9f0W2KD5s/hqdefault.jpg',
                     title: 'Peter Thiel on "The Portal", Episode #001: "An Era of Stagnation & Universal Institutional Failure."',
                     url: 'https://www.youtube.com/watch?v=nM9f0W2KD5s&t=1538s',
                     channel: 'Eric Weinstein',
-                    date: '2019'
+                    date: '2019',
+                    contentType: 'video'
                     },
                     {
                     image: 'http://i3.ytimg.com/vi/2wq9x2QcZN0/hqdefault.jpg',
                     title: 'Eric Weinstein: Revolutionary Ideas in Science, Math, and Society | Artificial Intelligence Podcast',
                     url: 'https://www.youtube.com/watch?v=2wq9x2QcZN0&t=1s',
                     channel: 'Lex Fridman',
-                    date: '2019'
+                    date: '2019',
+                    contentType: 'video'
                     },
                     {
                     image: 'https://i.ytimg.com/vi/_EWCN3CPhTI/hqdefault.jpg',
                     title: 'Joe Rogan Experience #1320 - Eric Weinstein',
                     url: 'https://www.youtube.com/watch?v=_EWCN3CPhTI',
                     channel: 'PowerfulJRE',
-                    date: '2019'
+                    date: '2019',
+                    contentType: 'video'
                     },
                     {
                     image: 'http://i3.ytimg.com/vi/nM9f0W2KD5s/hqdefault.jpg',
                     title: 'Peter Thiel on "The Portal", Episode #001: "An Era of Stagnation & Universal Institutional Failure."',
                     url: 'https://www.youtube.com/watch?v=nM9f0W2KD5s&t=1538s',
                     channel: 'Eric Weinstein',
-                    date: '2019'
+                    date: '2019',
+                    contentType: 'video'
                     },
                     {
                     image: 'http://i3.ytimg.com/vi/2wq9x2QcZN0/hqdefault.jpg',
                     title: 'Eric Weinstein: Revolutionary Ideas in Science, Math, and Society | Artificial Intelligence Podcast',
                     url: 'https://www.youtube.com/watch?v=2wq9x2QcZN0&t=1s',
                     channel: 'Lex Fridman',
-                    date: '2019'
+                    date: '2019',
+                    contentType: 'video'
                     },
                     {
                     image: 'https://i.ytimg.com/vi/_EWCN3CPhTI/hqdefault.jpg',
                     title: 'Joe Rogan Experience #1320 - Eric Weinstein',
                     url: 'https://www.youtube.com/watch?v=_EWCN3CPhTI',
                     channel: 'PowerfulJRE',
-                    date: '2019'
+                    date: '2019',
+                    contentType: 'video'
                     },
                     {
                     image: 'http://i3.ytimg.com/vi/nM9f0W2KD5s/hqdefault.jpg',
                     title: 'Peter Thiel on "The Portal", Episode #001: "An Era of Stagnation & Universal Institutional Failure."',
                     url: 'https://www.youtube.com/watch?v=nM9f0W2KD5s&t=1538s',
                     channel: 'Eric Weinstein',
-                    date: '2019'
+                    date: '2019',
+                    contentType: 'video'
                     },
                     {
                     image: 'http://i3.ytimg.com/vi/2wq9x2QcZN0/hqdefault.jpg',
                     title: 'Eric Weinstein: Revolutionary Ideas in Science, Math, and Society | Artificial Intelligence Podcast',
                     url: 'https://www.youtube.com/watch?v=2wq9x2QcZN0&t=1s',
                     channel: 'Lex Fridman',
-                    date: '2019'
+                    date: '2019',
+                    contentType: 'video'
                     },
                 ],
       articles: [
@@ -81,7 +90,8 @@ export default {
                     author: 'Stephen Nells, Paresh Dave',
                     date: '2020',
                     url: 'https://www.reuters.com/article/us-health-coronavirus-apple-alphabet/apple-google-plan-software-to-slow-virus-joining-global-debate-on-tracking-idUSKCN21S1TT',
-                    image: 'https://s4.reutersmedia.net/resources/r/?m=02&d=20200411&t=2&i=1514733104&w=1100&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG3914W'
+                    image: 'https://s4.reutersmedia.net/resources/r/?m=02&d=20200411&t=2&i=1514733104&w=1100&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG3914W',
+                    contentType: 'article'
                 },
                 {
                     publisher: 'Rueters',
@@ -89,7 +99,8 @@ export default {
                     author: 'Pei Li',
                     date: '2020',
                     url: 'https://www.reuters.com/article/us-nintendo-china-animalcrossing/nintendo-game-pulled-from-chinese-platforms-after-hong-kong-protest-idUSKCN21S11F',
-                    image: 'https://s1.reutersmedia.net/resources/r/?m=02&d=20200410&t=2&i=1514667132&w=370&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG390KA'
+                    image: 'https://s1.reutersmedia.net/resources/r/?m=02&d=20200410&t=2&i=1514667132&w=370&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG390KA',
+                    contentType: 'article'
                 },
                 {
                     publisher: 'Rueters',
@@ -97,7 +108,8 @@ export default {
                     author: 'Jonathan Stempel',
                     date: '2020',
                     url: 'https://www.reuters.com/article/us-facebook-lawsuit-privacy/facebook-must-face-renewed-privacy-lawsuit-over-user-tracking-idUSKCN21R3M7',
-                    image: 'https://s3.reutersmedia.net/resources/r/?m=02&d=20200409&t=2&i=1514619240&w=370&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG382EJ'
+                    image: 'https://s3.reutersmedia.net/resources/r/?m=02&d=20200409&t=2&i=1514619240&w=370&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG382EJ',
+                    contentType: 'article'
                 },
                 {
                     publisher: 'Rueters',
@@ -105,7 +117,8 @@ export default {
                     author: 'Stephen Nells, Paresh Dave',
                     date: '2020',
                     url: 'https://www.reuters.com/article/us-health-coronavirus-apple-alphabet/apple-google-plan-software-to-slow-virus-joining-global-debate-on-tracking-idUSKCN21S1TT',
-                    image: 'https://s4.reutersmedia.net/resources/r/?m=02&d=20200411&t=2&i=1514733104&w=1100&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG3914W'
+                    image: 'https://s4.reutersmedia.net/resources/r/?m=02&d=20200411&t=2&i=1514733104&w=1100&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG3914W',
+                    contentType: 'article'
                 },
                 {
                     publisher: 'Rueters',
@@ -113,7 +126,8 @@ export default {
                     author: 'Pei Li',
                     date: '2020',
                     url: 'https://www.reuters.com/article/us-nintendo-china-animalcrossing/nintendo-game-pulled-from-chinese-platforms-after-hong-kong-protest-idUSKCN21S11F',
-                    image: 'https://s1.reutersmedia.net/resources/r/?m=02&d=20200410&t=2&i=1514667132&w=370&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG390KA'
+                    image: 'https://s1.reutersmedia.net/resources/r/?m=02&d=20200410&t=2&i=1514667132&w=370&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG390KA',
+                    contentType: 'article'
                 },
                 {
                     publisher: 'Rueters',
@@ -121,7 +135,8 @@ export default {
                     author: 'Jonathan Stempel',
                     date: '2020',
                     url: 'https://www.reuters.com/article/us-facebook-lawsuit-privacy/facebook-must-face-renewed-privacy-lawsuit-over-user-tracking-idUSKCN21R3M7',
-                    image: 'https://s3.reutersmedia.net/resources/r/?m=02&d=20200409&t=2&i=1514619240&w=370&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG382EJ'
+                    image: 'https://s3.reutersmedia.net/resources/r/?m=02&d=20200409&t=2&i=1514619240&w=370&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG382EJ',
+                    contentType: 'article'
                 },
                 ],
      podcasts : [
@@ -131,7 +146,8 @@ export default {
                     url: 'https://open.spotify.com/episode/2PvaLmZxxIcOJkACZZPFAA',
                     podcast: 'The Portal',
                     host: 'Eric Weinstein',
-                    image: 'https://content.production.cdn.art19.com/images/47/45/d8/84/4745d884-4640-47e3-9333-c7ff709782f2/329a50b90aba9bef20274190bd4d261bc25b40a0be069807e32048899fdb9079b2519c605514673e8c73ae5b21b20cc67c4405a5661704f5ab7c6e46fc80d89c.jpeg'
+                    image: 'https://content.production.cdn.art19.com/images/47/45/d8/84/4745d884-4640-47e3-9333-c7ff709782f2/329a50b90aba9bef20274190bd4d261bc25b40a0be069807e32048899fdb9079b2519c605514673e8c73ae5b21b20cc67c4405a5661704f5ab7c6e46fc80d89c.jpeg',
+                    contentType: 'podcast'
                 },
                 {
                     title: '4: Tim Kuran - The Economics of Revolution and Mass Deception',
@@ -139,7 +155,8 @@ export default {
                     url: 'https://open.spotify.com/episode/0A4OoqZLws0vXsslzgYoPZ',
                     podcast: 'The Portal',
                     host: 'Eric Weinstein',
-                    image: 'https://content.production.cdn.art19.com/images/47/45/d8/84/4745d884-4640-47e3-9333-c7ff709782f2/329a50b90aba9bef20274190bd4d261bc25b40a0be069807e32048899fdb9079b2519c605514673e8c73ae5b21b20cc67c4405a5661704f5ab7c6e46fc80d89c.jpeg'
+                    image: 'https://content.production.cdn.art19.com/images/47/45/d8/84/4745d884-4640-47e3-9333-c7ff709782f2/329a50b90aba9bef20274190bd4d261bc25b40a0be069807e32048899fdb9079b2519c605514673e8c73ae5b21b20cc67c4405a5661704f5ab7c6e46fc80d89c.jpeg',
+                    contentType: 'podcast'
                 },
                 {
                     title: '3: Werner Herzog',
@@ -147,7 +164,8 @@ export default {
                     url: 'https://open.spotify.com/episode/6DrJMNKKJ0iFkJYZtakYk1',
                     podcast: 'The Portal',
                     host: 'Eric Weinstein',
-                    image: 'https://content.production.cdn.art19.com/images/47/45/d8/84/4745d884-4640-47e3-9333-c7ff709782f2/329a50b90aba9bef20274190bd4d261bc25b40a0be069807e32048899fdb9079b2519c605514673e8c73ae5b21b20cc67c4405a5661704f5ab7c6e46fc80d89c.jpeg'
+                    image: 'https://content.production.cdn.art19.com/images/47/45/d8/84/4745d884-4640-47e3-9333-c7ff709782f2/329a50b90aba9bef20274190bd4d261bc25b40a0be069807e32048899fdb9079b2519c605514673e8c73ae5b21b20cc67c4405a5661704f5ab7c6e46fc80d89c.jpeg',
+                    contentType: 'podcast'
                 },
                 {
                     title: '4: Tim Kuran - The Economics of Revolution and Mass Deception',

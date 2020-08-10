@@ -7,7 +7,7 @@ import {
   View
 } from "react-native";
 import { Block, Text} from "galio-framework";
-import Button from "../components/Button";
+import Button from "../components/Profile/Button";
 import argonTheme from "../constants/argonTheme";
 import { FlatList, TouchableWithoutFeedback } from "react-native-gesture-handler";
 import nerdProfiles from "../constants/nerdProfiles";
