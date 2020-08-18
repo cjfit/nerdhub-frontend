@@ -8,7 +8,7 @@ export default {
         location: 'San Francisco, USA',
         imgUrl: 'https://static.coindesk.com/wp-content/uploads/2019/11/IMG_7245-2.jpg',
         fields: ['math', 'finance', 'physics'],
-        description: "Mathematician and financier Eric Weinstein is the managing director of Peter Thiel's Clarium Capital.",
+        description: "Mathematician and financier Eric Weinstein is the managing director of Peter Thiel's Clarium Capital. Elastic Beanstalk is a managed service designed for deploying and scaling web applications and services. It supports languages such as Java, .NET, PHP, Node.js, Python, Ruby, and Go. It also supports a variety of web/application servers such as Apache, Nginx, Passenger, Tomcat, and IIS. Elastic Beanstalk also supports deployments of web application and services using Docker.",
         videos: [
                     {
                     image: 'https://i.ytimg.com/vi/_EWCN3CPhTI/hqdefault.jpg',
@@ -16,7 +16,8 @@ export default {
                     url: 'https://www.youtube.com/watch?v=_EWCN3CPhTI',
                     channel: 'PowerfulJRE',
                     date: '2019',
-                    contentType: 'video'
+                    contentType: 'video',
+                    id: '0'
                     },
                     {
                     image: 'http://i3.ytimg.com/vi/nM9f0W2KD5s/hqdefault.jpg',
@@ -24,7 +25,8 @@ export default {
                     url: 'https://www.youtube.com/watch?v=nM9f0W2KD5s&t=1538s',
                     channel: 'Eric Weinstein',
                     date: '2019',
-                    contentType: 'video'
+                    contentType: 'video',
+                    id: '1'
                     },
                     {
                     image: 'http://i3.ytimg.com/vi/2wq9x2QcZN0/hqdefault.jpg',
@@ -32,7 +34,8 @@ export default {
                     url: 'https://www.youtube.com/watch?v=2wq9x2QcZN0&t=1s',
                     channel: 'Lex Fridman',
                     date: '2019',
-                    contentType: 'video'
+                    contentType: 'video',
+                    id: '2'
                     },
                     {
                     image: 'https://i.ytimg.com/vi/_EWCN3CPhTI/hqdefault.jpg',
@@ -40,7 +43,8 @@ export default {
                     url: 'https://www.youtube.com/watch?v=_EWCN3CPhTI',
                     channel: 'PowerfulJRE',
                     date: '2019',
-                    contentType: 'video'
+                    contentType: 'video',
+                    id: '3'
                     },
                     {
                     image: 'http://i3.ytimg.com/vi/nM9f0W2KD5s/hqdefault.jpg',
@@ -48,7 +52,8 @@ export default {
                     url: 'https://www.youtube.com/watch?v=nM9f0W2KD5s&t=1538s',
                     channel: 'Eric Weinstein',
                     date: '2019',
-                    contentType: 'video'
+                    contentType: 'video',
+                    id: '4'
                     },
                     {
                     image: 'http://i3.ytimg.com/vi/2wq9x2QcZN0/hqdefault.jpg',
@@ -56,7 +61,8 @@ export default {
                     url: 'https://www.youtube.com/watch?v=2wq9x2QcZN0&t=1s',
                     channel: 'Lex Fridman',
                     date: '2019',
-                    contentType: 'video'
+                    contentType: 'video',
+                    id: '5'
                     },
                     {
                     image: 'https://i.ytimg.com/vi/_EWCN3CPhTI/hqdefault.jpg',
@@ -64,7 +70,8 @@ export default {
                     url: 'https://www.youtube.com/watch?v=_EWCN3CPhTI',
                     channel: 'PowerfulJRE',
                     date: '2019',
-                    contentType: 'video'
+                    contentType: 'video',
+                    id: '6'
                     },
                     {
                     image: 'http://i3.ytimg.com/vi/nM9f0W2KD5s/hqdefault.jpg',
@@ -72,7 +79,8 @@ export default {
                     url: 'https://www.youtube.com/watch?v=nM9f0W2KD5s&t=1538s',
                     channel: 'Eric Weinstein',
                     date: '2019',
-                    contentType: 'video'
+                    contentType: 'video',
+                    id: '7'
                     },
                     {
                     image: 'http://i3.ytimg.com/vi/2wq9x2QcZN0/hqdefault.jpg',
@@ -80,7 +88,8 @@ export default {
                     url: 'https://www.youtube.com/watch?v=2wq9x2QcZN0&t=1s',
                     channel: 'Lex Fridman',
                     date: '2019',
-                    contentType: 'video'
+                    contentType: 'video',
+                    id: '8'
                     },
                 ],
       articles: [
@@ -91,7 +100,8 @@ export default {
                     date: '2020',
                     url: 'https://www.reuters.com/article/us-health-coronavirus-apple-alphabet/apple-google-plan-software-to-slow-virus-joining-global-debate-on-tracking-idUSKCN21S1TT',
                     image: 'https://s4.reutersmedia.net/resources/r/?m=02&d=20200411&t=2&i=1514733104&w=1100&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG3914W',
-                    contentType: 'article'
+                    contentType: 'article',
+                    id: '0'
                 },
                 {
                     publisher: 'Rueters',
@@ -100,7 +110,8 @@ export default {
                     date: '2020',
                     url: 'https://www.reuters.com/article/us-nintendo-china-animalcrossing/nintendo-game-pulled-from-chinese-platforms-after-hong-kong-protest-idUSKCN21S11F',
                     image: 'https://s1.reutersmedia.net/resources/r/?m=02&d=20200410&t=2&i=1514667132&w=370&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG390KA',
-                    contentType: 'article'
+                    contentType: 'article',
+                    id: '1'
                 },
                 {
                     publisher: 'Rueters',
@@ -109,7 +120,8 @@ export default {
                     date: '2020',
                     url: 'https://www.reuters.com/article/us-facebook-lawsuit-privacy/facebook-must-face-renewed-privacy-lawsuit-over-user-tracking-idUSKCN21R3M7',
                     image: 'https://s3.reutersmedia.net/resources/r/?m=02&d=20200409&t=2&i=1514619240&w=370&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG382EJ',
-                    contentType: 'article'
+                    contentType: 'article',
+                    id: '2'
                 },
                 {
                     publisher: 'Rueters',
@@ -118,7 +130,8 @@ export default {
                     date: '2020',
                     url: 'https://www.reuters.com/article/us-health-coronavirus-apple-alphabet/apple-google-plan-software-to-slow-virus-joining-global-debate-on-tracking-idUSKCN21S1TT',
                     image: 'https://s4.reutersmedia.net/resources/r/?m=02&d=20200411&t=2&i=1514733104&w=1100&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG3914W',
-                    contentType: 'article'
+                    contentType: 'article',
+                    id: '3'
                 },
                 {
                     publisher: 'Rueters',
@@ -127,7 +140,8 @@ export default {
                     date: '2020',
                     url: 'https://www.reuters.com/article/us-nintendo-china-animalcrossing/nintendo-game-pulled-from-chinese-platforms-after-hong-kong-protest-idUSKCN21S11F',
                     image: 'https://s1.reutersmedia.net/resources/r/?m=02&d=20200410&t=2&i=1514667132&w=370&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG390KA',
-                    contentType: 'article'
+                    contentType: 'article',
+                    id: '4'
                 },
                 {
                     publisher: 'Rueters',
@@ -136,7 +150,8 @@ export default {
                     date: '2020',
                     url: 'https://www.reuters.com/article/us-facebook-lawsuit-privacy/facebook-must-face-renewed-privacy-lawsuit-over-user-tracking-idUSKCN21R3M7',
                     image: 'https://s3.reutersmedia.net/resources/r/?m=02&d=20200409&t=2&i=1514619240&w=370&fh=&fw=&ll=&pl=&sq=&r=LYNXNPEG382EJ',
-                    contentType: 'article'
+                    contentType: 'article',
+                    id: '5'
                 },
                 ],
      podcasts : [

@@ -9,6 +9,7 @@ import FeedScreens from '../screens/feed/FeedScreens';
 import Explore from "../screens/explore/Explore";
 import NerdList from "../screens/NerdList";
 import Profile from "../screens/Profile";
+import ProfileEfficient from '../screens/ProfileEfficient';
 import ViewAll from "../screens/ViewAll";
 import Settings from "../screens/Settings";
 import Icon from "../components/Icon";
@@ -48,15 +49,6 @@ function FeedTabs() {
     >
       <Stack.Screen name='FeedScreens' component={FeedScreens}
       />
-    </Stack.Navigator>
-  )
-}
-
-// Search Screens
-function SearchStack() {
-  return (
-    <Stack.Navigator mode='card' headerMode='screen'>
-      <Stack.Screen name='Search' component={Search} />
     </Stack.Navigator>
   )
 }
@@ -104,7 +96,7 @@ function NerdListStack() {
         />
         <Stack.Screen 
             name="Profile"
-            component={Profile}
+            component={ProfileEfficient}
             options={{
                 header: ({ navigation, scene }) => (
                   <Header
@@ -176,9 +168,7 @@ function HomeStack() {
               iconName = "user";
             } else if (route.name === "Explore") {
               iconName = "rocket1";
-            } else if (route.name === 'Search') {
-              iconName = "search1"
-            }
+            } 
             // You can return any component that you like here!
             return (
               <Icon
@@ -203,7 +193,6 @@ function HomeStack() {
       >
         <Tab.Screen name="Feed" component={FeedTabs}/>
         <Tab.Screen name="Explore" component={ExploreStack}/>
-        <Tab.Screen name="Search" component={SearchStack}/>
         <Tab.Screen name="NerdList" component={NerdListStack}/>
       </Tab.Navigator>
     );
