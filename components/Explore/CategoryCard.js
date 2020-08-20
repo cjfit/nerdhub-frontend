@@ -34,7 +34,7 @@ class CategoryCard extends React.Component {
 
 const styles = StyleSheet.create({
   shadow: {
-    shadowColor: 'black',
+    shadowColor: argonTheme.COLORS.BLACK,
     shadowOffset: { width: 2, height: 2 },
     shadowRadius: 4,
     shadowOpacity: 0.25,

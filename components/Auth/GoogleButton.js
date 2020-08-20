@@ -15,12 +15,9 @@ const GoogleButton = ({
       <TouchableOpacity
         onPress={onPress}
         style={{
-          backgroundColor: argonTheme.COLORS.WHITE, 
+          backgroundColor: argonTheme.COLORS.LIGHT_GREY, 
           marginBottom: '3%', 
           borderRadius: 10,
-          shadowColor: argonTheme.COLORS.BLACK,
-          shadowOffset: { width: 3, height: 5},
-          shadowOpacity: 0.3
         }}
       >
         <View style={styles.button}>
@@ -29,7 +26,7 @@ const GoogleButton = ({
           style={styles.google}
           />
           <Text style={{
-            color: argonTheme.COLORS.MUTED,
+            color: argonTheme.COLORS.WHITE,
             fontSize: 16,
             fontFamily: 'OpenSans-bold',
             paddingLeft: '2%'

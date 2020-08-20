@@ -30,6 +30,7 @@ export default {
     BLACK: '#000000',
     LIGHT_TEXT: '#94969C',
     OFF_WHITE_BACKGROUND: '#F5F5F5',
+    LIGHT_GREY: '#BFBFBF',
     
     //Brands
     TWITTER: '#1DA1F2',

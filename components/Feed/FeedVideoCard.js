@@ -3,13 +3,13 @@ import { withNavigation } from '@react-navigation/compat';
 import {
   StyleSheet,
   Image,
-  TouchableWithoutFeedback,
   Linking,
 } from "react-native";
 import { Block, Text } from "galio-framework";
 import argonTheme from "../../constants/argonTheme";
 import nerdProfiles from "../../constants/nerdProfiles";
 import Icon from '../Icon';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export default function FeedVideoCard ({item}) {
     const handleClick = () => {
@@ -22,7 +22,6 @@ export default function FeedVideoCard ({item}) {
       })};
 
     return (
-      <TouchableWithoutFeedback>
         <Block style={styles.container}>
             <Block>
                 <Block flexDirection='row' style={styles.bottom}>
@@ -53,34 +52,35 @@ export default function FeedVideoCard ({item}) {
                     </Block>
                 </Block>
             </Block>
+            <TouchableOpacity onPress={() => console.log('Button Pressed')} style={{height: 250}} 
+            hitSlop={{bottom: 0}}
+            >
             <Image 
             source={{ uri: item.image }} 
             style={styles.image}
             />
+            </TouchableOpacity>
             <Text 
-            style={{fontFamily: 'OpenSans-regular', fontSize: 14, marginTop: '3%'}}
-            numberOfLines={2}
+            style={{fontFamily: 'OpenSans-regular', fontSize: 14, marginTop: '1%'}}
+            numberOfLines={3}
             >
             {item.title}
             </Text>            
-            <Block flexDirection='row'>
-            </Block>
         </Block>
-      </TouchableWithoutFeedback>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        width: '100%',
+        width: '90%',
         height: 300,
-        marginBottom: '10%',
+        marginBottom: '15%',
         marginTop: '5%',
         alignSelf: 'center'
     },
     image: {
-        height: '78%',
+        height: '100%',
         width: '100%',
         borderRadius: 5,
         backgroundColor: argonTheme.COLORS.MUTED

@@ -1,19 +1,19 @@
 {
     "dev": {
         "awscloudformation": {
-            "AuthRoleName": "amplify-nerdhub-dev-163106-authRole",
-            "UnauthRoleArn": "arn:aws:iam::970668048089:role/amplify-nerdhub-dev-163106-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::970668048089:role/amplify-nerdhub-dev-163106-authRole",
+            "AuthRoleName": "amplify-nerdhub-dev-215354-authRole",
+            "UnauthRoleArn": "arn:aws:iam::970668048089:role/amplify-nerdhub-dev-215354-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::970668048089:role/amplify-nerdhub-dev-215354-authRole",
             "Region": "us-east-2",
-            "DeploymentBucketName": "amplify-nerdhub-dev-163106-deployment",
-            "UnauthRoleName": "amplify-nerdhub-dev-163106-unauthRole",
-            "StackName": "amplify-nerdhub-dev-163106",
-            "StackId": "arn:aws:cloudformation:us-east-2:970668048089:stack/amplify-nerdhub-dev-163106/879e4fe0-a76b-11ea-a8d5-02402ec64522",
-            "AmplifyAppId": "d2bzn752lt9qdn"
+            "DeploymentBucketName": "amplify-nerdhub-dev-215354-deployment",
+            "UnauthRoleName": "amplify-nerdhub-dev-215354-unauthRole",
+            "StackName": "amplify-nerdhub-dev-215354",
+            "StackId": "arn:aws:cloudformation:us-east-2:970668048089:stack/amplify-nerdhub-dev-215354/ad97af70-e0f5-11ea-a2a8-065f7f806406",
+            "AmplifyAppId": "d2l741rcknyg1u"
         },
         "categories": {
             "auth": {
-                "nerdhub39718c9f": {
+                "nerdhub4f2efcd5": {
                     "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"297144464809002\",\"client_secret\":\"6d85bca74578d9d20d2b35030d9750f9\"},{\"ProviderName\":\"Google\",\"client_id\":\"454804467950-qf698jrll4i888ljimbl5668afuo88vk.apps.googleusercontent.com\",\"client_secret\":\"kc5AOGobrZ_oknIDa8_-Sdt2\"}]"
                 }
             }

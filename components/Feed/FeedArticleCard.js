@@ -100,7 +100,7 @@ export default function FeedArticleCard ({item}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        width: '100%',
+        width: '90%',
         height: 300,
         marginBottom: '10%',
         marginTop: '5%',

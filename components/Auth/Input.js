@@ -5,7 +5,7 @@ import argonTheme from '../../constants/argonTheme'
 const { width } = Dimensions.get('window')
 
 const Input = ({
-  placeholder, type, secureTextEntry = false, onChangeText
+  placeholder, secureTextEntry = false, onChangeText
 }) => {
 
   const [focus, setFocus] = useState(styles.input);
@@ -16,7 +16,7 @@ const Input = ({
       placeholder={placeholder}
       autoCapitalize='none'
       autoCorrect={false}
-      onChangeText={v => onChangeText(type, v)}
+      onChangeText={v => onChangeText(v)}
       secureTextEntry={secureTextEntry}
       placeholderTextColor={argonTheme.COLORS.TEXT}
       selectionColor={argonTheme.COLORS.ACTIVE}

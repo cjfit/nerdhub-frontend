@@ -17,10 +17,6 @@ const ActionButton = ({
           backgroundColor: argonTheme.COLORS.ACTIVE, 
           marginBottom: '3%', 
           borderRadius: 10, 
-          shadowColor: argonTheme.COLORS.BLACK,
-          shadowOffset: { width: 3, height: 5},
-          shadowOpacity: 0.3
-        
         }}
       >
         <View style={styles.button}>

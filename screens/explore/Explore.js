@@ -1,16 +1,14 @@
 import React from 'react';
 import { Block, Text} from 'galio-framework';
 import { StyleSheet, FlatList, ActivityIndicator, View } from "react-native";
-import { Button } from 'react-native-elements';
-import Icon from '../../components/Icon';
 import CategoryCard from '../../components/Explore/CategoryCard';
 import argonTheme from "../../constants/argonTheme";
-import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 import nerdProfiles from '../../constants/nerdProfiles';
 import {selectCategory} from '../../constants/Categories';
 import FeedArticleCard from '../../components/Feed/FeedArticleCard';
 import FeedVideoCard from '../../components/Feed/FeedVideoCard';
 import FeedPodcastCard from '../../components/Feed/FeedPodcastCard';
+import {BottomMetrics} from '../../components/Feed/BottomMetrics';
 
 export default function Explore() {
 
@@ -33,108 +31,67 @@ export default function Explore() {
 
     function renderTrending({ item }) {
         const contentType = item.contentType
-        const bottomSection = 
-        <Block flexDirection='row' style={{justifyContent: 'flex-start', alignItems: 'center'}}>
-        <Button 
-        title='1,357'
-        type='clear'
-        titleStyle={{
-          fontFamily: 'OpenSans-bold',
-          fontSize: 14,
-          color: argonTheme.COLORS.TEXT
-        }}
-        icon={
-          <Icon
-          name='heart-outline'
-          family='material-community'
-          size={14}
-          style={{marginTop: '4%'}}
-          />
-        }
-        />
-        <Button 
-        title='164'
-        type='clear'
-        titleStyle={{
-          fontFamily: 'OpenSans-bold',
-          fontSize: 14,
-          color: argonTheme.COLORS.TEXT
-        }}
-        icon={
-          <Icon
-          name='comment-outline'
-          family='material-community'
-          size={14}
-          style={{marginTop: '10%'}}
-          />
-        }
-        />
-        <Text
-        style={{
-          fontFamily: 'OpenSans-regular',
-          fontSize: 14,
-          paddingLeft: '41%',
-          color: argonTheme.COLORS.MUTED
-        }}
-        >{item.publishedat}
-        </Text>
-        </Block>
-
         switch(contentType) {
             case 'article':
                 return (
                     <Block>
                     <FeedArticleCard item={item}/>
-                    {bottomSection}
+                    <BottomMetrics/>
                     </Block>
                 )
             case 'video':
                 return (
                     <Block>
                     <FeedVideoCard item={item}/>
-                    {bottomSection}
+                    <BottomMetrics/>
                     </Block>
                 )
             case 'podcast':
                 return (
+                    <Block>
                     <FeedPodcastCard item={item}/>
+                    <BottomMetrics/>
+                    </Block>
                 )
             default:
                 return (<FeedArticleCard item={item}/>)
         }
     }
 
+    const flatListHeader = 
+    <Block style={styles.container}>
+    <Block style={styles.categories}>
+        <Text style={styles.subheading}>Categories</Text>
+        <FlatList 
+            style={styles.categoriesFlatlist}
+            data={nerdProfiles.bios[0].fields}
+            renderItem={renderCategories}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            scrollEnabled={true}
+        />
+    </Block>
+    <Block>
+        <Text style={styles.subheading}>Trending</Text>
+    </Block>
+</Block>
+
     return (
-        <ScrollView style={styles.background}>
-        <Block style={styles.container}>
-            <Block style={styles.categories}>
-                <Text style={styles.subheading}>Categories</Text>
-                <FlatList 
-                    style={styles.categoriesFlatlist}
-                    data={nerdProfiles.bios[0].fields}
-                    renderItem={renderCategories}
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
-                    scrollEnabled={true}
-                />
-            </Block>
-            <Block>
-                <Text style={styles.subheading}>Trending</Text>
-                <FlatList 
-                    style={styles.trendingFlatlist}
-                    data={nerdProfiles.bios[0].videos}
-                    renderItem={renderTrending}
-                />
-                
-            </Block>
+        <Block style={styles.background}>
+        <FlatList 
+        style={styles.trendingFlatlist}
+        data={nerdProfiles.bios[0].videos}
+        renderItem={renderTrending}
+        ListHeaderComponent={flatListHeader}
+        />
         </Block>
-        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
     background: {
-        backgroundColor: argonTheme.COLORS.WHITE
+        backgroundColor: argonTheme.COLORS.WHITE,
+        width: '100%'
     },
     container: {
         flex: 1,
@@ -157,7 +114,7 @@ const styles = StyleSheet.create({
         marginTop: '3%'
     },
     trendingFlatlist: {
-        width: '90%',
+        width: '100%',
         alignSelf: 'center'
     }
 })

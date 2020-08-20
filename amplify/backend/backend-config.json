@@ -1,11 +1,10 @@
 {
 	"auth": {
-		"nerdhub39718c9f": {
+		"nerdhub4f2efcd5": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [],
 			"customAuth": false
 		}
-	},
-	"function": {}
+	}
 }

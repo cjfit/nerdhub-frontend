@@ -20,7 +20,6 @@ function SignIn() {
   // Assigns toggleAuthType function to a variable
   const updateAuth = useContext(AuthContext);
   const toggleAuthType = useContext(ToggleContext);
-
   // Username and Password state management via useState hooks
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -34,7 +33,7 @@ function SignIn() {
     try {
       await Auth.signIn(username, password)
       console.log('successfully signed in')
-      updateAuth('MainNav')
+      updateAuth('mainView')
     } catch (e) {
       logger.debug('error signing in...', e)
       alert(e.message)
@@ -49,12 +48,10 @@ function SignIn() {
       <View>
         <Input
           onChangeText={(text) => {setUsername(text)}}
-          type='username'
           placeholder='Username'
         />
         <Input
           onChangeText={(text) => {setPassword(text)}}
-          type='password'
           placeholder='Password'
           secureTextEntry
         />

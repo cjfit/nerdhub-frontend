@@ -277,4 +277,4 @@ function AppStack(props) {
 
 // AWS AUTH
 
-export default AppStack;
+export default AuthStack;

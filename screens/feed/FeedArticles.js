@@ -2,11 +2,10 @@
 import React, {useState, useEffect} from 'react';
 import ApolloClient, {gql} from 'apollo-boost';
 import { StyleSheet, View, ActivityIndicator, FlatList } from 'react-native';
-import { Block, Text } from 'galio-framework';
-import { Button } from 'react-native-elements';
-import Icon from '../../components/Icon';
+import { Block } from 'galio-framework';
 import argonTheme from '../../constants/argonTheme';
 import FeedArticleCard from '../../components/Feed/FeedArticleCard';
+import { BottomMetrics } from '../../components/Feed/BottomMetrics';
 
 // AWS RDS postgres database endpoint
 const postGresURI = 'http://ec2-13-59-107-152.us-east-2.compute.amazonaws.com/v1/graphql';
@@ -58,51 +57,7 @@ export default function FeedArticles() {
     return (
           <Block>
             <FeedArticleCard item={item}/>
-            <Block flexDirection='row' style={{justifyContent: 'flex-start', alignItems: 'center'}}>
-            <Button 
-            title='1,357'
-            type='clear'
-            titleStyle={{
-              fontFamily: 'OpenSans-bold',
-              fontSize: 14,
-              color: argonTheme.COLORS.TEXT
-            }}
-            icon={
-              <Icon
-              name='heart-outline'
-              family='material-community'
-              size={14}
-              style={{marginTop: '4%'}}
-              />
-            }
-            />
-            <Button 
-            title='164'
-            type='clear'
-            titleStyle={{
-              fontFamily: 'OpenSans-bold',
-              fontSize: 14,
-              color: argonTheme.COLORS.TEXT
-            }}
-            icon={
-              <Icon
-              name='comment-outline'
-              family='material-community'
-              size={14}
-              style={{marginTop: '10%'}}
-              />
-            }
-            />
-            <Text
-            style={{
-              fontFamily: 'OpenSans-regular',
-              fontSize: 14,
-              paddingLeft: '41%',
-              color: argonTheme.COLORS.MUTED
-            }}
-            >{item.publishedat}
-            </Text>
-            </Block>
+            <BottomMetrics/>
           </Block>
       );
     }
@@ -130,7 +85,7 @@ export default function FeedArticles() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '90%'
+    width: '100%'
   },
   header: {
     marginTop: 50,

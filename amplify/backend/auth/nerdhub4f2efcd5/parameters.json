@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "nerdhub39718c9f_identitypool_39718c9f",
+    "identityPoolName": "nerdhub4f2efcd5_identitypool_4f2efcd5",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "nerdhu39718c9f",
-    "userPoolName": "nerdhub39718c9f_userpool_39718c9f",
+    "resourceNameTruncated": "nerdhu4f2efcd5",
+    "userPoolName": "nerdhub4f2efcd5_userpool_4f2efcd5",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "nerdhu39718c9f_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "nerdhu4f2efcd5_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "39718c9f",
-    "resourceName": "nerdhub39718c9f",
+    "sharedId": "4f2efcd5",
+    "resourceName": "nerdhub4f2efcd5",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -47,13 +47,13 @@
     },
     "useDefault": "defaultSocial",
     "hostedUI": true,
-    "hostedUIDomainName": "nerdhub-auth",
+    "hostedUIDomainName": "nerdhub4f2efcd5-4f2efcd5",
     "authProvidersUserPool": [
         "Facebook",
         "Google"
     ],
     "hostedUIProviderMeta": "[{\"ProviderName\":\"Facebook\",\"authorize_scopes\":\"email,public_profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"id\"}},{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\"]}",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"myapp://\"],\"LogoutURLs\":[\"myapp://\"]}",
     "userPoolGroupList": [],
     "dependsOn": []
 }

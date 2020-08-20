@@ -321,7 +321,7 @@ PODS:
     - React
   - RNCMaskedView (0.1.9):
     - React
-  - RNGestureHandler (1.6.1):
+  - RNGestureHandler (1.7.0):
     - React
   - RNGoogleSignin (4.0.1):
     - GoogleSignIn (~> 5.0.0)
@@ -538,7 +538,7 @@ SPEC CHECKSUMS:
   ReactCommon: ed4e11d27609d571e7eee8b65548efc191116eb3
   RNAWSCognito: cd5c8904204db774c630c49d222c3230f24ed77e
   RNCMaskedView: 5dba3cb07493765fb66156c83c3dd281ca709a48
-  RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
+  RNGestureHandler: b6b359bb800ae399a9c8b27032bdbf7c18f08a08
   RNGoogleSignin: 849967e0300695601cf094a8481350e79142b3c5
   RNInAppBrowser: 6097fbc6b09051b40a6a9ec22caf7af40b115ec0
   RNReanimated: 955cf4068714003d2f1a6e2bae3fb1118f359aff
