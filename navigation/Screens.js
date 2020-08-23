@@ -6,10 +6,10 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import FeedScreens from '../screens/feed/FeedScreens';
+import Post from '../screens/feed/Post';
 import Explore from "../screens/explore/Explore";
 import NerdList from "../screens/NerdList";
-import Profile from "../screens/Profile";
-import ProfileEfficient from '../screens/ProfileEfficient';
+import Profile from '../screens/Profile';
 import ViewAll from "../screens/ViewAll";
 import Settings from "../screens/Settings";
 import Icon from "../components/Icon";
@@ -47,8 +47,21 @@ function FeedTabs() {
       }
     }}
     >
-      <Stack.Screen name='FeedScreens' component={FeedScreens}
-      />
+      <Stack.Screen name='FeedScreens' component={FeedScreens}/>
+      <Stack.Screen 
+      name='Post' 
+      component={Post} 
+      options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title="Post"
+              navigation={navigation}
+              scene={scene}
+              back={true}
+            />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" }
+        }}/>
     </Stack.Navigator>
   )
 }
@@ -96,7 +109,7 @@ function NerdListStack() {
         />
         <Stack.Screen 
             name="Profile"
-            component={ProfileEfficient}
+            component={Profile}
             options={{
                 header: ({ navigation, scene }) => (
                   <Header

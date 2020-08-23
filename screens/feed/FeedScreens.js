@@ -74,6 +74,6 @@ export default function FeedScreens() {
 
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: argonTheme.COLORS.WHITE
+    backgroundColor: argonTheme.COLORS.OFF_WHITE_BACKGROUND
   }
 })

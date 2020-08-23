@@ -8,6 +8,7 @@ import FeedArticleCard from '../../components/Feed/FeedArticleCard';
 import { BottomMetrics } from '../../components/Feed/BottomMetrics';
 import nerdProfiles from '../../constants/nerdProfiles';
 
+// GraphQL query that gets 20 articles from hasura db
 const REQUESTED_ARTICLES = gql`
 query getArticles {
   articles(limit: 20) {
@@ -27,12 +28,12 @@ query getArticles {
 
 export default function FeedArticles() {
 
+  // useQuery Apollo hook, returns a promise that resolves to either loading, error, or data
   const { loading, error, data } = useQuery(REQUESTED_ARTICLES);
-  console.log(data)
 
   function renderArticleItem({item}) {
     return (
-          <Block>
+          <Block style={styles.articleCardContainer}>
             <FeedArticleCard item={item}/>
             <BottomMetrics/>
           </Block>
@@ -57,7 +58,7 @@ export default function FeedArticles() {
   
   else {
     return (
-      <View style={styles.container}>
+      <View style={styles.parentContainer}>
         <FlatList
         data={data.articles}
         renderItem={renderArticleItem}
@@ -68,10 +69,16 @@ export default function FeedArticles() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  parentContainer: {
     flex: 1,
     alignSelf: 'center',
     width: '100%',
+  },
+  articleCardContainer: {
+    backgroundColor: argonTheme.COLORS.WHITE,
+    marginBottom: '2%',
+    marginTop: '2%',
+    borderRadius: 8,
   }
 
 })

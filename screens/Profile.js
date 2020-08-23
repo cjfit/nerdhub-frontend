@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   StyleSheet,
   Dimensions,
-  ScrollView,
-  Image,
-  View
+  Image
 } from "react-native";
 import { Block, Text} from "galio-framework";
 import Button from "../components/Profile/Button";
@@ -14,52 +12,36 @@ import nerdProfiles from "../constants/nerdProfiles";
 import ViewMoreText from 'react-native-view-more-text';
 import { useNavigation } from '@react-navigation/native';
 import {selectCategory} from '../constants/Categories';
-import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
-import ProfileVideos from './ProfileVideos';
-import ProfileArticles from './ProfileArticles';
+import ViewAllVideoCard from "../components/Profile/ViewAllVideoCard";
+import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
+import Icon from '../components/Icon';
 
-const VideosRoute = () => (
-    <ProfileVideos/>
-  );
-   
-const ArticlesRoute = () => (
-    <ProfileArticles/>
-  );
-   
-const PodcastsRoute = () => (
-    <Text>Podcasts</Text>
-  );
 const initialLayout = { width: Dimensions.get('window').width };
-
-const renderTabBar = props => (
-    <TabBar
-        {...props}
-        indicatorStyle={{ backgroundColor: argonTheme.COLORS.ACTIVE }}
-        activeColor={argonTheme.COLORS.TEXT}
-        inactiveColor={argonTheme.COLORS.MUTED}
-        style={{ 
-            backgroundColor: null,
-            height: 40
-        }}    
-        renderLabel={({ route, focused, color }) => (
-            <Text 
-            style={{ 
-                color, 
-                fontFamily: 'OpenSans-bold',
-                fontSize: 14
-                }}>
-              {route.title}
-            </Text>
-          )}
-    />
-  );
    
 
 export default function Profile(props) {
+    
+    // Initiate loading
     const [loading, setLoading] = useState(true);
-    async function profileLoaded() {
-        
-    }
+
+    // View more text logic
+    function renderViewMore(onPress){
+        return(
+            <Block right>
+                <Icon onPress={onPress} name='unfold-more' family='MaterialIcons' size={20} color={argonTheme.COLORS.TEXT} style={{marginTop: '2%'}}/>
+            </Block>
+        )
+      }
+
+      function renderViewLess(onPress){
+        return(
+            <Block right>
+                <Icon onPress={onPress} name='unfold-more' family='MaterialIcons' size={20} color={argonTheme.COLORS.TEXT} style={{marginTop: '2%'}}/>
+            </Block>
+        )
+      }
+
+    // Renders function for a flatlist of categories associated with the nerd
     function renderCategories({item}) {
         const clr = selectCategory(item)
         return (
@@ -69,13 +51,22 @@ export default function Profile(props) {
                 height: 30, 
                 backgroundColor: clr,
                 marginRight: 8,
-                marginTop: 25
+                marginTop: '25%'
                 }}
                 >{item}
                 </Button>
             )
     }
+    
 
+    // Renders the selected media for the flatlist
+    function renderMedia({item}) {
+        return (
+            <ViewAllVideoCard item={item}/>
+        )
+    }
+
+    // Following function
     const [following, setFollowing] = useState(false)
 
     const follow = () => {
@@ -100,23 +91,29 @@ export default function Profile(props) {
         )
         }
     }
-    const [index, setIndex] = React.useState(0);
-    const [routes] = React.useState([
-        { key: 'videos', title: 'Videos' },
-        { key: 'articles', title: 'Articles' },
-        { key: 'podcasts', title: 'Podcasts' },
-    ]);
-    
-    const renderScene = SceneMap({
-        videos: VideosRoute,
-        articles: ArticlesRoute,
-        podcasts: PodcastsRoute
-    });
 
+    // Material Menu 
+    const [media, setMedia] = useState(nerdProfiles.bios[0].videos);
+    const [mediaTitle, setMediaTitle] = useState('Videos')
+
+    const menu = useRef();
+
+    const displayVideos = () => {
+        menu.current.hide();
+        setMedia(nerdProfiles.bios[0].videos);
+        setMediaTitle('Videos');
+    };
+    const displayArticles = () => {
+        menu.current.hide();
+        setMedia(nerdProfiles.bios[0].articles);
+        setMediaTitle('Articles');
+    };
+  
+    const showMenu = () => menu.current.show();
     
-    return (
+    // Define flatlist section header
+    const profileHeader = 
         <Block style={styles.container}>
-            <ScrollView showsVerticalScrollIndicator={false}>
             <Block style={styles.profileHeader}>
                 <Block style={styles.nameAndImg}>
                     <Block>
@@ -126,17 +123,16 @@ export default function Profile(props) {
                     >
                     {nerdProfiles.bios[0].firstName} {nerdProfiles.bios[0].lastName}
                     </Text>
-                    <Button style={styles.followButton}
-                    onPress={() => {
-                        if(following) {
-                          setFollowing(false)
-                        } else {
-                          setFollowing(true)
-                        }
-                      }}
-                    >
-                        {follow()}
-                    </Button>
+                    <Block style={styles.stats}>
+                    <Block style={styles.followerCont}>
+                        <Text style={styles.number}>43000</Text>
+                        <Text style={styles.metric}>Followers</Text>
+                    </Block>
+                    <Block style={styles.contentCont}>
+                        <Text style={styles.number}>9.5/10</Text>
+                        <Text style={styles.metric}>Content Score</Text>
+                    </Block>
+                    </Block>
                     </Block>
                     <Block style={styles.avatarContainer}>
                     <Image 
@@ -146,43 +142,53 @@ export default function Profile(props) {
                     />
                     </Block>
                 </Block>
-                <Block style={styles.stats}>
-                    <Block style={styles.followerCont}>
-                        <Text style={styles.number}>43000</Text>
-                        <Text style={styles.metric}>Followers</Text>
-                    </Block>
-                    <Block style={styles.contentCont}>
-                        <Text style={styles.number}>9.5/10</Text>
-                        <Text style={styles.metric}>Content Score</Text>
-                    </Block>
-                </Block>
+                <Button style={styles.followButton}
+                    onPress={() => {
+                        if(following) {
+                          setFollowing(false)
+                        } else {
+                          setFollowing(true)
+                        }
+                      }}
+                    >
+                        {follow()}
+                </Button>
                 <Block style={styles.aboutContainer}>
                     <Text style={styles.about}>About</Text>
-                    <Text style={styles.aboutText} left
+                    <ViewMoreText
+                        numberOfLines={3}
+                        renderViewMore={renderViewMore}
+                        renderViewLess={renderViewLess}
                     >
-                    {nerdProfiles.bios[0].description}
-                    </Text>
-                </Block>
+                        <Text style={styles.aboutText} left>
+                        {nerdProfiles.bios[0].description}
+                        </Text>
+                    </ViewMoreText>
+                </Block> 
                 <FlatList 
-                    style={styles.flatlist}
                     data={nerdProfiles.bios[0].fields}
                     renderItem={renderCategories}
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
                     scrollEnabled={false}
                 />
+                <Block style={{flexDirection: 'row', justifyContent: 'space-between', paddingTop: '7%'}}>
+                    <Text style={styles.about}>{mediaTitle}</Text>
+                <Menu ref={menu} button={<Icon onPress={showMenu} size={25} family="material-community" name="dots-horizontal"/>}>
+                    <MenuItem onPress={displayVideos} textStyle={styles.menuText}>Videos</MenuItem>
+                    <MenuItem onPress={displayArticles} textStyle={styles.menuText}>Articles</MenuItem>
+                    <MenuItem onPress={displayArticles} textStyle={styles.menuText}>Podcasts</MenuItem>
+                </Menu>
+                </Block>
             </Block>
-            <Block style={styles.profileBody}>
-            </Block>
-            <TabView
-                navigationState={{ index, routes }}
-                renderScene={renderScene}
-                onIndexChange={setIndex}
-                initialLayout={initialLayout}
-                renderTabBar={renderTabBar}
-            />
-            </ScrollView>
         </Block>
+    
+    return (
+            <FlatList 
+                ListHeaderComponent={profileHeader}
+                renderItem={renderMedia}
+                data={media}
+            />
     );
 
 }
@@ -218,32 +224,34 @@ const styles = StyleSheet.create({
     },
     name: {
         fontFamily: 'OpenSans-bold',
-        fontSize: 24,
+        fontSize: 20,
         marginBottom: '8%',
     },
     followButton: {
         width: '100%',
         height: 30,
-        backgroundColor: argonTheme.COLORS.ACTIVE
+        backgroundColor: argonTheme.COLORS.ACTIVE,
+        marginTop: '5%'
     },
     stats: {
         flexDirection: 'row',
         justifyContent: 'flex-start',
-        marginTop: '5%'
+
     },
     contentCont: {
         paddingLeft: '5%'
     },
     number: {
         fontFamily: 'OpenSans-bold',
-        fontSize: 18
+        fontSize: 16
     },
     metric: {
         fontFamily: 'OpenSans-regular',
-        fontSize: 16
+        fontSize: 14,
+        color: argonTheme.COLORS.MUTED
     },
     aboutContainer: {
-        marginTop: '8%'
+        marginTop: '8%',
     },
     about: {
         fontFamily: 'OpenSans-bold',
@@ -251,9 +259,20 @@ const styles = StyleSheet.create({
     },
     aboutText: {
         fontFamily: 'OpenSans-regular',
-        fontSize: 16
+        fontSize: 16,
+        color: argonTheme.COLORS.TEXT
     },
-    profileBody: {
-        marginBottom: '5%'
+    viewTextButton: {
+        fontFamily: 'OpenSans-regular',
+        fontSize: 14,
+        color: argonTheme.COLORS.ACTIVE,
+        marginTop: '2%'
     },
+    repositoryFlatlist: {
+        width: '90%',
+    },
+    menuText: {
+        fontFamily: 'OpenSans-regular',
+        fontSize: 14
+    }
 })
