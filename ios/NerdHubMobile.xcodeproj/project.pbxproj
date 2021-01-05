@@ -310,7 +310,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1170;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -714,6 +714,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C19DABB497D57BAA0535E035 /* Pods-NerdHubMobile-NerdHubMobileTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -737,6 +738,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E9A8E79042A1448565D56988 /* Pods-NerdHubMobile-NerdHubMobileTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = NerdHubMobileTests/Info.plist;
@@ -777,6 +779,7 @@
 				PRODUCT_NAME = NerdHubMobile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -799,6 +802,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nerdhub.nerdhubios;
 				PRODUCT_NAME = NerdHubMobile;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
