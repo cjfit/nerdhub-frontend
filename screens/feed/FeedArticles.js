@@ -18,7 +18,7 @@ const REQUESTED_ARTICLES = gql`
   query getArticles {
     bing_articles(limit: 20) {
       title
-      articleimgurl
+      articlefullimgurl
       description
       id
       datepublished

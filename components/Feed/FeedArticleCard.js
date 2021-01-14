@@ -113,7 +113,7 @@ export default function FeedArticleCard({item}) {
         </TouchableWithoutFeedback>
       </Block>
       <TouchableWithoutFeedback onPress={OpenLink}>
-        <Image source={{uri: item.articleimgurl}} style={styles.image} />
+        <Image source={{uri: item.articlefullimgurl}} style={styles.image} />
       </TouchableWithoutFeedback>
       <Block flexDirection="row"></Block>
     </Block>
