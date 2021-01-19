@@ -10,19 +10,22 @@ import {
 import {Block} from 'galio-framework';
 import argonTheme from '../../constants/argonTheme';
 import FeedArticleCard from '../../components/Feed/FeedArticleCard';
+import FeedArticleCardSmall from '../../components/Feed/FeedArticleCardSmall';
 import {BottomMetrics} from '../../components/Feed/BottomMetrics';
 import nerdProfiles from '../../constants/nerdProfiles';
 
 // GraphQL query that gets 20 articles from hasura db
 const REQUESTED_ARTICLES = gql`
   query getArticles {
-    bing_articles(limit: 20) {
+    bing_articles(limit: 50) {
       title
       articlefullimgurl
+      articlethumbnailimgurl
       description
       id
       datepublished
       source
+      sourceimgurl
       url
     }
   }
@@ -33,12 +36,31 @@ export default function FeedArticles() {
   const {loading, error, data} = useQuery(REQUESTED_ARTICLES);
 
   function renderArticleItem({item}) {
-    return (
-      <Block style={styles.articleCardContainer}>
-        <FeedArticleCard item={item} />
-        <BottomMetrics />
-      </Block>
-    );
+    if (
+      item.articlefullimgurl == 'NULL' &&
+      item.articlethumbnailimgurl == 'NULL'
+    ) {
+      return (
+        <Block style={styles.articleCardNoImgContainer}>
+          <FeedArticleCardSmall item={item} />
+          <BottomMetrics item={item} />
+        </Block>
+      );
+    } else if (item.articlefullimgurl == 'NULL') {
+      return (
+        <Block style={styles.articleCardNoImgContainer}>
+          <Text>Only Full Image missing here.</Text>
+          <FeedArticleCardSmall item={item} />
+          <BottomMetrics item={item} />
+        </Block>
+      );
+    } else
+      return (
+        <Block style={styles.articleCardContainer}>
+          <FeedArticleCard item={item} />
+          <BottomMetrics item={item} />
+        </Block>
+      );
   }
 
   if (loading) {
@@ -57,7 +79,11 @@ export default function FeedArticles() {
   } else {
     return (
       <View style={styles.parentContainer}>
-        <FlatList data={data.bing_articles} renderItem={renderArticleItem} />
+        <FlatList
+          data={data.bing_articles}
+          renderItem={renderArticleItem}
+          keyExtractor={(item, index) => item.id.toString()}
+        />
       </View>
     );
   }
@@ -74,5 +100,11 @@ const styles = StyleSheet.create({
     marginBottom: '2%',
     marginTop: '2%',
     borderRadius: 8,
+  },
+  articleCardNoImgContainer: {
+    backgroundColor: argonTheme.COLORS.WHITE,
+    marginBottom: '2%',
+    marginTop: '2%',
+    borderRadius: 18,
   },
 });

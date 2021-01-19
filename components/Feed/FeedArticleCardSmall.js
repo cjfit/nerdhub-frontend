@@ -6,6 +6,7 @@ import {
   TouchableWithoutFeedback,
   Linking,
   Dimensions,
+  View,
 } from 'react-native';
 import {Block, Text} from 'galio-framework';
 import argonTheme from '../../constants/argonTheme';
@@ -13,7 +14,7 @@ import nerdProfiles from '../../constants/nerdProfiles';
 import InAppBrowser from 'react-native-inappbrowser-reborn';
 import {useNavigation} from '@react-navigation/native';
 
-export default function FeedArticleCard({item}) {
+export default function FeedArticleCardSmall({item}) {
   // Gets window width of device
   const windowWidth = Dimensions.get('window').width;
 
@@ -78,7 +79,7 @@ export default function FeedArticleCard({item}) {
                 fontFamily: 'OpenSans-bold',
                 fontSize: 14,
                 paddingLeft: '2%',
-                color: argonTheme.COLORS.TEXT,
+                color: argonTheme.COLORS.MUTED,
                 width: windowWidth / 1.5,
               }}
               numberOfLines={1}></Text>
@@ -107,18 +108,25 @@ export default function FeedArticleCard({item}) {
               fontSize: 14,
               marginTop: '2%',
               marginBottom: '2%',
+              textAlign: 'left',
             }}
-            numberOfLines={2}>
+            numberOfLines={3}>
             {item.title}
           </Text>
         </TouchableWithoutFeedback>
       </Block>
       <TouchableWithoutFeedback onPress={OpenLink}>
-        <Image
-          source={{uri: item.articlefullimgurl}}
-          style={styles.image}
-          defaultSource={require('../../assets/imgs/1x1.png')}
-        />
+        <Text
+          style={{
+            fontFamily: 'OpenSans-light',
+            fontSize: 12,
+            marginTop: '2%',
+            marginBottom: '4%',
+            textAlign: 'left',
+          }}
+          numberOfLines={3}>
+          {item.description}
+        </Text>
       </TouchableWithoutFeedback>
       <Block flexDirection="row"></Block>
     </Block>
@@ -129,14 +137,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '90%',
-    height: 300,
+    height: 110,
     marginBottom: '10%',
     marginTop: '5%',
     alignSelf: 'center',
   },
-  image: {
-    height: '78%',
-    width: '100%',
+  linkimage: {
+    width: 40,
+    height: 40,
     borderRadius: 5,
   },
   avatar: {
