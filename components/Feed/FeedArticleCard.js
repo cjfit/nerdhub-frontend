@@ -99,7 +99,9 @@ export default function FeedArticleCard({item}) {
         </Block>
         <TouchableWithoutFeedback
           onPress={() => {
-            navigation.navigate('Post');
+            navigation.navigate('Post', {
+              item,
+            });
           }}>
           <Text
             style={{
