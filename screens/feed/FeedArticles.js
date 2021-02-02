@@ -17,7 +17,7 @@ import nerdProfiles from '../../constants/nerdProfiles';
 // GraphQL query that gets 20 articles from hasura db
 const REQUESTED_ARTICLES = gql`
   query getArticles {
-    bing_articles(limit: 50) {
+    bing_articles(order_by: {datepublished: desc}, limit: 50) {
       title
       articlefullimgurl
       articlethumbnailimgurl
