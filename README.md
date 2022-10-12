@@ -11,7 +11,7 @@ Nerdhub was a work-in-progress full-stack social media iOS application for retri
 
 I handled the majority of the backend work involved with the project.
 
-The project was scrapped for lack of business viability but it lives on as an example of a successful proof-of-concept.
+The project was scrapped for lack of business viability but it lives on as an example of a proof-of-concept development application.
 
 
 
