@@ -13,9 +13,15 @@ I handled the majority of the backend work involved with the project.
 
 The project was scrapped for lack of business viability but it lives on as an example of a proof-of-concept development application.
 
+<h1><Application Screenshots</h1>
+<h2>Post</h2>
+![Simulator Screen Shot - iPhone 11 - 2021-01-28 at 14 20 34](https://user-images.githubusercontent.com/7490790/196258088-2fe02492-d9d0-4c2c-9c2c-b72ba285e495.png)
+<h2>Feed</h2>
+![Simulator Screen Shot - iPhone 11 - 2021-01-19 at 16 15 11](https://user-images.githubusercontent.com/7490790/196258193-78aa521e-c8fc-4318-82ee-e3c48a977fcf.png)
 
 
 <h2>Instructions</h2>
+
 <p> This assumes you have Xcode and an iphone simulator working on your device. </p>
 <p>1. Clone the repository into a new empty "nerdhub" folder (let me know if you need assistance).<p>
 <p>2. Open up your terminal. Navigate to the nerdhub folder</p>  
